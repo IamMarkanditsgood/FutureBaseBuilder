@@ -1,18 +1,41 @@
 using System.Collections;
-using System.Collections.Generic;
+using Systems.Events;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class LevelManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private LevelResources _levelResources;
+    [SerializeField] private LevelPrefabs _levelPrefabs;
+    [SerializeField] private StructureManager _structureManager;
+
+    private bool _placingBuild;
+
+    private void Start()
     {
-        
+        Subscribe();
+        Initialization();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        UnSubscribe();
+    }
+
+    private void Subscribe()
+    {
+        LevelEventManager.OnStructureDestroyed += _structureManager.DestroyStructure;
+        LevelEventManager.OnBuildBuyed += _structureManager.CreateBuild;
+        LevelEventManager.OnImprovePressed += _structureManager.ImproveStructure;
+    }
+    private void UnSubscribe()
+    {
+        LevelEventManager.OnStructureDestroyed -= _structureManager.DestroyStructure;
+        LevelEventManager.OnBuildBuyed -= _structureManager.CreateBuild;
+    }
+
+    private void Initialization()
+    {
+        _structureManager.Init(_levelPrefabs);
     }
 }

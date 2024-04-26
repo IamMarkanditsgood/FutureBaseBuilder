@@ -7,6 +7,8 @@ namespace UI.Level
     public class UIPanelsManager : MonoBehaviour
     {
         [SerializeField] private GameObject _structurePanel;
+        [SerializeField] private GameObject _shopPanel;
+        [SerializeField] private GameObject _brokenPanelWarning;
     
         private void Start()
         {
@@ -20,24 +22,33 @@ namespace UI.Level
 
         private void Subscribe()
         {
-            BuildsEventManager.OnShowStructurePanel += ShowStructurePanel;
+            UIEventManager.OnShowStructurePanel += ShowStructurePanel;
+            UIEventManager.OnShowShopPanel += ShowShopPanel;
+            UIEventManager.OnBrakePlatformPressed += ShowBrokenPlatformWarning;
         }
 
         private void Unsubscribe()
         {
-            BuildsEventManager.OnShowStructurePanel -= ShowStructurePanel;
+            UIEventManager.OnShowStructurePanel -= ShowStructurePanel;
+            UIEventManager.OnShowShopPanel -= ShowShopPanel;
+            UIEventManager.OnBrakePlatformPressed -= ShowBrokenPlatformWarning;
         }
 
-        private void ShowStructurePanel(BuildsData basicBuildingManager)
+        private void ShowStructurePanel(BasicBuildingManager basicBuildingManager)
         {
             _structurePanel.SetActive(true);
-            SetPanel(basicBuildingManager);
+            _structurePanel.GetComponent<StructurePanelManager>().AssemblePanel(basicBuildingManager);
+        }
+        private void ShowShopPanel(ByingParamethers byingParamethers)
+        {
+            _shopPanel.SetActive(true);
+            _shopPanel.GetComponent<ShopPanelManager>().Init(byingParamethers);
         }
 
-        private void SetPanel(BuildsData basicBuildingManager)
+        private void ShowBrokenPlatformWarning()
         {
-            
+            _brokenPanelWarning.SetActive(true);
         }
-    
+
     }
 }

@@ -3,18 +3,13 @@ using UnityEngine;
 
 namespace Enteties.Buildings
 {
-    public class MainBase : BasicBuildingManager, IDestroyable, IImprovable
+    public class MainBase : BasicBuildingManager, IImprovable
     {
         public override void OnMouseDown()
         {
-            BuildsEventManager.ShowStructurePanel(_buildsData);
+            UIEventManager.ShowStructurePanel(this);
         }
         
-        public void Destroy()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void Improve()
         {
             throw new System.NotImplementedException();
