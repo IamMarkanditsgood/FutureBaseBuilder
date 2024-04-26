@@ -8,6 +8,7 @@ namespace Systems.Events
         public static event Action<BasicBuildingManager> OnShowStructurePanel;
         public static event Action<ByingParamethers> OnShowShopPanel;
         public static event Action OnBrakePlatformPressed;
+        public static event Action OnCloseAllPanels;
 
         public static void ShowStructurePanel(BasicBuildingManager basicBuildingManager)
         {
@@ -21,6 +22,10 @@ namespace Systems.Events
         public static void ShowBrakePlatformWarning()
         {
             OnBrakePlatformPressed?.Invoke();
+        }
+        public static void CloseAllPanels()
+        {
+            OnCloseAllPanels?.Invoke();
         }
     }
 }

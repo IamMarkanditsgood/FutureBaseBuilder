@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Enteties.Buildings
 {
@@ -10,20 +11,34 @@ namespace Enteties.Buildings
         [SerializeField] private BuildingLevels _buildingLevel;
         [SerializeField] private GameObject _placePosition;
         [SerializeField] private bool _isInteractable;
-        [SerializeField] private int _updatePrice;
+        [SerializeField] private int _updateCrystalsPrice;
+        [SerializeField] private int _updateFoodPrice;
+        [SerializeField] private int _updateEnergyPrice;
         [TextAreaAttribute]
         [SerializeField] private string _information;
+        public int UpdateFoodPrice
+        {
+            get => _updateFoodPrice;
+            set => _updateFoodPrice = value;
+        }
+
+        public int UpdateEnergyPrice
+        {
+            get => _updateEnergyPrice;
+            set => _updateEnergyPrice = value;
+        }
+        public int UpdateCrystalsPrice 
+        {
+            get { return _updateCrystalsPrice; }
+            set { _updateCrystalsPrice = value; }
+        }
 
         public string Information
         {
             get { return _information; }
             set { _information = value; }
         }
-        public int UpdatePrice 
-        {
-            get { return _updatePrice; }
-            set { _updatePrice = value; }
-        }
+        
         public bool IsInteractable
         {
             get { return _isInteractable; }

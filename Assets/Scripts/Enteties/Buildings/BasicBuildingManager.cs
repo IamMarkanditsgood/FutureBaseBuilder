@@ -7,7 +7,7 @@ namespace Enteties.Buildings
     {
         [SerializeField] protected BuildsData _buildsData;
         [SerializeField] protected bool _isInUse;
-        [SerializeField] protected bool _canBeImproved;
+        [SerializeField] protected bool _canBeImproved = true;
 
         public bool IsInUse
         {

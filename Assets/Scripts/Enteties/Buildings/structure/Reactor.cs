@@ -17,7 +17,7 @@ namespace Enteties.Buildings
 
         public void Improve()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("Good");
         }
 
         public void Manufacture()

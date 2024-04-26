@@ -49,7 +49,7 @@ public class StructurePanelManager : BasicPanelManager
         BuildsData buildsData = _basicBuildingManager.BuildsData;
         _name.text = buildsData.BuildingType.ToString();
         _level.text = buildsData.BuildingLevel.ToString();
-        _price.text = buildsData.UpdatePrice.ToString();
+        _price.text = "Crystals: " + buildsData.UpdateCrystalsPrice + " Energy: " + buildsData.UpdateEnergyPrice + " Food: " + buildsData.UpdateFoodPrice;
         _information.text = buildsData.Information;
         BuildingLevels lastLevel = Enum.GetValues(typeof(BuildingLevels)).Cast<BuildingLevels>().Last();
         if (buildsData.BuildingLevel != lastLevel)
@@ -76,10 +76,20 @@ public class StructurePanelManager : BasicPanelManager
         {
             _interactionButton.SetActive(false);
         }
+
+        if (basicBuildingManager.CanBeImproved)
+        {
+            _updateButton.SetActive(true);
+        }
+        else
+        {
+            _updateButton.SetActive(false);
+        }
         
     }
     private void Improve()
     {
+       
         LevelEventManager.ImprovePressed(_basicBuildingManager);
     }
     private void Destroy()

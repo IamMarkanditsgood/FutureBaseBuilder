@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Systems.Events;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI.Level
@@ -6,11 +7,22 @@ namespace UI.Level
     public abstract class BasicPanelManager: MonoBehaviour
     {
         [SerializeField] protected Button _close;
-            
 
+        public BasicPanelManager()
+        {
+            UIEventManager.OnCloseAllPanels += ClosePanel;
+        }
+            
         protected void ClosePanel()
         {
-            gameObject.SetActive(false);
+            try
+            {
+                gameObject.SetActive(false);
+            }
+            catch
+            {
+                Debug.Log("Already have been switched off");
+            }
         }
     }
 }

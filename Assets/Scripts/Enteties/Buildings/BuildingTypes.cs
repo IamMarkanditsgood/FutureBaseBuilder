@@ -9,5 +9,6 @@
         Laboratory,
         House,
         ArmyCreator,
+        Turret,
     }
 }
