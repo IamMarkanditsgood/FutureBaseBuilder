@@ -322,8 +322,10 @@ MonoBehaviour:
     _updateFoodPrice: 2
     _updateEnergyPrice: 3
     _information: some
-  _isInUse: 0
+  _isInUse: 1
   _canBeImproved: 1
+  _producingInterval: 2
+  _producedEnergy: 25
 --- !u!1 &1129629795283463752
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,10 +6,10 @@ namespace Enteties.Buildings.Platforms
     {
         public override void OnMouseDown()
         {
-            ByingParamethers buByingParamethers = new ByingParamethers();
-            buByingParamethers.ChoosedPlatform = gameObject;
-            buByingParamethers.ChoosetPosition = _spawnPosition;
-            UIEventManager.ShowShopPanel(buByingParamethers);
+            BuyingParameters buBuyingParameters = new BuyingParameters();
+            buBuyingParameters.ChoosedPlatform = gameObject;
+            buBuyingParameters.ChoosetPosition = _spawnPosition;
+            UIEventManager.ShowShopPanel(buBuyingParameters);
                 
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -12,7 +13,20 @@ namespace Enteties.Buildings
         public bool IsInUse
         {
             get => _isInUse;
-            set => _isInUse = value;
+            set
+            {
+                _isInUse = value;
+                if (_isInUse && this is IManufacturer)
+                {
+                    IManufacturer manufacturer = (IManufacturer)this;
+                    manufacturer.StartManufacture();
+                }
+                else if(!_isInUse && this is IManufacturer)
+                {
+                    IManufacturer manufacturer = (IManufacturer)this;
+                    manufacturer.StopManufacture();
+                }
+            }
         }
 
         public bool CanBeImproved
@@ -26,7 +40,25 @@ namespace Enteties.Buildings
             get { return _buildsData; }
             set { _buildsData = value; }
         }
+        /// <summary>
+        /// I need to change it on Pool Object
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+        public void Start()
+        {
+            IsInUse = true;
+        }
+
+        public void OnEnable()
+        {
+            IsInUse = true;
+        }
 
         public abstract void OnMouseDown();
+
+        public void OnDisable()
+        {
+            IsInUse = false;
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Enteties.Buildings
 {
-    public interface IImprovable
+    public interface IBaseImprover
     {
         public void Improve();
     }

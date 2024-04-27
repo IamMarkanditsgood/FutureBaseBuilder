@@ -2,7 +2,7 @@
 
 namespace Enteties.Buildings
 {
-    public class ArmyCreator : BasicBuildingManager, IDestroyable, IImprovable
+    public class House : BasicBuildingManager, IDestroyable
     {
         public override void OnMouseDown()
         {
@@ -10,11 +10,6 @@ namespace Enteties.Buildings
         }
         
         public void Destroy()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Improve()
         {
             throw new System.NotImplementedException();
         }

@@ -39,10 +39,10 @@ namespace UI.Level
             _structurePanel.SetActive(true);
             _structurePanel.GetComponent<StructurePanelManager>().AssemblePanel(basicBuildingManager);
         }
-        private void ShowShopPanel(ByingParamethers byingParamethers)
+        private void ShowShopPanel(BuyingParameters buyingParameters)
         {
             _shopPanel.SetActive(true);
-            _shopPanel.GetComponent<ShopPanelManager>().Init(byingParamethers);
+            _shopPanel.GetComponent<ShopPanelManager>().ConfigureShopPanel(buyingParameters);
         }
 
         private void ShowBrokenPlatformWarning()

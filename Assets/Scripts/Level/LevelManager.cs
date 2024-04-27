@@ -25,18 +25,21 @@ namespace Level
         private void Subscribe()
         {
             LevelEventManager.OnStructureDestroyed += _structureManager.DestroyStructure;
-            LevelEventManager.OnBuildBuyed += _structureManager.CreateBuild;
+            LevelEventManager.OnPurchasedBuildCreate += _structureManager.CreatePurchasedBuild;
             LevelEventManager.OnImprovePressed += _structureManager.ImproveStructure;
+            LevelEventManager.OnBaseImprove += _structureManager.RepairPlatforms;
             LevelEventManager.OnEnergyModify += _levelResources.ModifyEnergy;
             LevelEventManager.OnFoodModify += _levelResources.ModifyFood;
             LevelEventManager.OnСrystalsModify += _levelResources.ModifyCrystals;
             LevelEventManager.OnPowerModify += _levelResources.ModifyPower;
+            
         }
         private void UnSubscribe()
         {
             LevelEventManager.OnStructureDestroyed -= _structureManager.DestroyStructure;
-            LevelEventManager.OnBuildBuyed -= _structureManager.CreateBuild;
+            LevelEventManager.OnPurchasedBuildCreate -= _structureManager.CreatePurchasedBuild;
             LevelEventManager.OnImprovePressed -= _structureManager.ImproveStructure;
+            LevelEventManager.OnBaseImprove -= _structureManager.RepairPlatforms;
             LevelEventManager.OnEnergyModify -= _levelResources.ModifyEnergy;
             LevelEventManager.OnFoodModify -= _levelResources.ModifyFood;
             LevelEventManager.OnСrystalsModify -= _levelResources.ModifyCrystals;

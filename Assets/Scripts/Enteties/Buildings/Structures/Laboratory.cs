@@ -1,18 +1,19 @@
-﻿using Systems.Events;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Enteties.Buildings
 {
-    public class MainBase : BasicBuildingManager, IImprovable
+    public class Laboratory : BasicBuildingManager, IDestroyable
     {
         public override void OnMouseDown()
         {
-            UIEventManager.ShowStructurePanel(this);
+            Debug.Log("Good");
         }
         
-        public void Improve()
+        public void Destroy()
         {
             throw new System.NotImplementedException();
         }
+
+     
     }
 }

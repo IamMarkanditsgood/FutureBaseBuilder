@@ -2,6 +2,7 @@
 {
     public interface IManufacturer
     {
-        public void Manufacture();
+        public void StartManufacture();
+        public void StopManufacture();
     }
 }

@@ -1066,11 +1066,16 @@ MonoBehaviour:
   _buildsData:
     _buildingType: 1
     _buildingLevel: 0
-    _position: {x: 0, y: 0, z: 0}
+    _placePosition: {fileID: 0}
     _isInteractable: 0
-    _updatePrice: 8
+    _updateCrystalsPrice: 0
+    _updateFoodPrice: 0
+    _updateEnergyPrice: 0
     _information: 15666
-  _isInUse: 0
+  _isInUse: 1
+  _canBeImproved: 1
+  _producingInterval: 2
+  _producedCrystals: 26
 --- !u!1 &7028801690366956659
 GameObject:
   m_ObjectHideFlags: 0

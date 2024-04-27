@@ -3,20 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using Systems.Events;
 using Enteties.Buildings;
+using TMPro;
 using UI.Level;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class ShopPanelManager : BasicPanelManager
 {
-    //TODO
-    [SerializeField] private Button _buyMiner;
-    [SerializeField] private Button _buyFarm;
-    [SerializeField] private Button _buyReactor;
+    [Serializable]
+    private struct Pages
+    {
+        public List<BuildBuyPanelParameters> buildParameters;
+    }
     
-    
-    private ByingParamethers _byingParamethers = new ByingParamethers();
+    [SerializeField] private ShopPage _shopPage;
+    [SerializeField] private List<Pages> _pages;
+    [SerializeField] private Button _nextPageButton;
+    [SerializeField] private Button _prevPageButton;
+    [SerializeField] private TextMeshProUGUI _pageText;
 
+    private BuyingParameters _buyingParameters;
+    private int _currentPage = 0;
+    
     private void Start()
     {
         Subscribe();
@@ -28,39 +37,53 @@ public class ShopPanelManager : BasicPanelManager
 
     private void Subscribe()
     {
-        _buyMiner.onClick.AddListener(BuyMiner);
-        _buyFarm.onClick.AddListener(BuyFarm);
-        _buyReactor.onClick.AddListener(BuyReactor);
+        _shopPage.Subscribe();
         _close.onClick.AddListener(ClosePanel);   
+        _nextPageButton.onClick.AddListener(NextPage);
+        _prevPageButton.onClick.AddListener(PrevPage);
     }
 
     private void Unsubscribe()
     {
-        _buyMiner.onClick.RemoveListener(BuyMiner);
-        _buyFarm.onClick.RemoveListener(BuyFarm);
-        _buyReactor.onClick.RemoveListener(BuyReactor);
+        _shopPage.Unsubscribe();
         _close.onClick.RemoveListener(ClosePanel);    
+        _nextPageButton.onClick.RemoveListener(NextPage);
+        _prevPageButton.onClick.RemoveListener(PrevPage);
     }
-    public void Init(ByingParamethers byingParamethers)
+    public void ConfigureShopPanel(BuyingParameters buyingParameters)
     {
-        _byingParamethers = byingParamethers;
+        _buyingParameters = buyingParameters;
+        _shopPage.ConfigureBuyingParameters(_buyingParameters, _pages[_currentPage].buildParameters, gameObject);
     }
-    private void BuyMiner()
+
+    private void NextPage()
     {
-        _byingParamethers.BuildingTypes = BuildingTypes.Miner;
-        LevelEventManager.BuyBuild(_byingParamethers);
-        gameObject.SetActive(false);
+        if (_currentPage == _pages.Count - 1)
+        {
+            _currentPage = 0;
+        }
+        else
+        {
+            _currentPage++;
+        }
+        int textPage = _currentPage + 1;
+        _pageText.text = textPage.ToString();
+        _shopPage.ConfigureBuyingParameters(_buyingParameters, _pages[_currentPage].buildParameters, gameObject);
     }
-    private void BuyFarm()
+
+    private void PrevPage()
     {
-        _byingParamethers.BuildingTypes = BuildingTypes.Farm;
-        LevelEventManager.BuyBuild(_byingParamethers);
-        gameObject.SetActive(false);
-    }
-    private void BuyReactor()
-    {
-        _byingParamethers.BuildingTypes = BuildingTypes.Reactor;
-        LevelEventManager.BuyBuild(_byingParamethers);
-        gameObject.SetActive(false);
+        if (_currentPage == 0)
+        {
+            _currentPage = _pages.Count - 1;
+        }
+        else
+        {
+            _currentPage--;
+        }
+
+        int textPage = _currentPage + 1;
+        _pageText.text = textPage.ToString();
+        _shopPage.ConfigureBuyingParameters(_buyingParameters, _pages[_currentPage].buildParameters, gameObject);
     }
 }

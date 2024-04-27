@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Enteties.Buildings
 {
-    public class Turret : BasicBuildingManager, IImprovable
+    public class Turret : BasicBuildingManager, IBaseImprover
     {
         [SerializeField] private int _power;
         [SerializeField] private int[] _amountOfPowerForLevel;

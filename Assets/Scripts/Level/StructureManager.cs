@@ -12,10 +12,9 @@ public class StructureManager
 {
     [SerializeField] private List<Vector3> _structurePositions;
     [SerializeField] private BuildingLevels _maxLevel;
+    [SerializeField] private List<BrokenPlatform> _brokenPlatforms;
     private LevelPrefabs _levelPrefabs;
     private LevelResources _levelResources;
-
-    
 
     public void Init(LevelPrefabs levelPrefabs,ref LevelResources levelResources)
     {
@@ -31,14 +30,13 @@ public class StructureManager
         Object.Destroy(structure);
     }
 
-    public void CreateBuild(ByingParamethers byingParamethers)
+    public void CreatePurchasedBuild(BuyingParameters buyingParameters)
     {
-        GameObject pref = FindStructureByType(byingParamethers);
-        pref = Object.Instantiate(pref, byingParamethers.ChoosetPosition.transform.position, Quaternion.identity);
+        GameObject pref = FindStructureByType(buyingParameters.BuildingTypes, BuildingLevels.Lv1);
+        pref = Object.Instantiate(pref, buyingParameters.ChoosetPosition.transform.position, Quaternion.identity);
         BuildsData buildsData = pref.GetComponent<BasicBuildingManager>().BuildsData;
-        buildsData.PlacePosition = byingParamethers.ChoosetPosition;
-        Object.Destroy(byingParamethers.ChoosedPlatform);
-        
+        buildsData.PlacePosition = buyingParameters.ChoosetPosition;
+        Object.Destroy(buyingParameters.ChoosedPlatform);
     }
 
     public void ImproveStructure(BasicBuildingManager basicBuildingManager)
@@ -62,9 +60,9 @@ public class StructureManager
                     newBuild.GetComponent<BasicBuildingManager>().CanBeImproved = false;
                 }
                 Object.Destroy(basicBuildingManager.gameObject);
-                if (newBuild.GetComponent<BasicBuildingManager>() is IImprovable)
+                if (newBuild.GetComponent<BasicBuildingManager>() is IBaseImprover)
                 {
-                    IImprovable structure = (IImprovable)newBuild.GetComponent<BasicBuildingManager>();
+                    IBaseImprover structure = (IBaseImprover)newBuild.GetComponent<BasicBuildingManager>();
                     structure.Improve();
                 }
                 
@@ -72,13 +70,12 @@ public class StructureManager
             }
         }
     }
-    public GameObject FindStructureByType(ByingParamethers byingParamethers)
+    public GameObject FindStructureByType(BuildingTypes buildingTypes, BuildingLevels buildingLevel)
     {
         for (int i = 0; i < _levelPrefabs.BuildsList.Count; i++)
         {
-            if (byingParamethers.BuildingTypes == _levelPrefabs.BuildsList[i].GetComponent<BasicBuildingManager>()
-                .BuildsData
-                .BuildingType)
+            BuildsData buildsData = _levelPrefabs.BuildsList[i].GetComponent<BasicBuildingManager>().BuildsData;
+            if (buildingTypes == buildsData.BuildingType && buildingLevel == buildsData.BuildingLevel)
             {
                 return _levelPrefabs.BuildsList[i];
             }
@@ -86,5 +83,32 @@ public class StructureManager
         return null;
     }
 
+    public void RepairPlatforms(BuildingLevels baseLevel)
+    {
+        List<BrokenPlatform> halfBrokenPlatforms = new List<BrokenPlatform>();
+        if (baseLevel != _maxLevel)
+        {
+            for (int i = 0; i < _brokenPlatforms.Count / 2; i++)
+            {
+                halfBrokenPlatforms.Add(_brokenPlatforms[i]);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < _brokenPlatforms.Count; i++)
+            {
+                halfBrokenPlatforms.Add(_brokenPlatforms[i]);
+            }
+        }
+
+        for (int i = 0; i < halfBrokenPlatforms.Count; i++)
+        {
+            GameObject newPlatform = Object.Instantiate(_levelPrefabs.Foundament, halfBrokenPlatforms[i].SpawnPosition.transform.position,
+                Quaternion.identity);
+            newPlatform.GetComponent<RepairedPlatform>().SpawnPosition = halfBrokenPlatforms[i].SpawnPosition;
+            Object.Destroy(halfBrokenPlatforms[i].gameObject);
+            _brokenPlatforms.Remove(halfBrokenPlatforms[i]);
+        }
+    }
 
 }

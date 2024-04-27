@@ -486,6 +486,8 @@ GameObject:
   - component: {fileID: 3469364659653328830}
   - component: {fileID: 5481209467888111236}
   - component: {fileID: 8468025990124186116}
+  - component: {fileID: 8541548125679142143}
+  - component: {fileID: 86962922257706482}
   m_Layer: 0
   m_Name: Laboratory lv3
   m_TagString: Untagged
@@ -578,8 +580,58 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 9.887415, y: 7.528262, z: 7.4967213}
+  m_Center: {x: -0.17624092, y: 3.2641315, z: -0.14241982}
+--- !u!54 &8541548125679142143
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2930738632494623952}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &86962922257706482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2930738632494623952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 969957b3d307bad46800d115e2d14c70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buildsData:
+    _buildingType: 4
+    _buildingLevel: 2
+    _placePosition: {fileID: 0}
+    _isInteractable: 0
+    _updateCrystalsPrice: 0
+    _updateFoodPrice: 0
+    _updateEnergyPrice: 0
+    _information: 
+  _isInUse: 0
+  _canBeImproved: 0
 --- !u!1 &3170721185259122555
 GameObject:
   m_ObjectHideFlags: 0

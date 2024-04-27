@@ -6,7 +6,7 @@ namespace Systems.Events
     public static class UIEventManager
     {
         public static event Action<BasicBuildingManager> OnShowStructurePanel;
-        public static event Action<ByingParamethers> OnShowShopPanel;
+        public static event Action<BuyingParameters> OnShowShopPanel;
         public static event Action OnBrakePlatformPressed;
         public static event Action OnCloseAllPanels;
 
@@ -14,9 +14,9 @@ namespace Systems.Events
         {
             OnShowStructurePanel?.Invoke(basicBuildingManager);
         }
-        public static void ShowShopPanel(ByingParamethers byingParamethers)
+        public static void ShowShopPanel(BuyingParameters buyingParameters)
         {
-            OnShowShopPanel?.Invoke(byingParamethers);
+            OnShowShopPanel?.Invoke(buyingParameters);
         }
         
         public static void ShowBrakePlatformWarning()

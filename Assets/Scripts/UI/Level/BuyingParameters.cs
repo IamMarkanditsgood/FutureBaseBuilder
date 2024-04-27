@@ -1,7 +1,7 @@
 ﻿using Enteties.Buildings;
 using UnityEngine;
 
-public class ByingParamethers 
+public class BuyingParameters 
 {
     private GameObject _choosedPlatform;
     private GameObject _choosetPosition;
@@ -9,8 +9,8 @@ public class ByingParamethers
 
     public GameObject ChoosedPlatform
     {
-        get { return _choosedPlatform; }
-        set { _choosedPlatform = value; }
+        get => _choosedPlatform;
+        set => _choosedPlatform = value;
     }
     public GameObject ChoosetPosition
     {
@@ -22,4 +22,5 @@ public class ByingParamethers
         get { return _buildingTypes; }
         set { _buildingTypes = value; }
     }
+    
 }
