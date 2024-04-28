@@ -15,6 +15,7 @@ namespace UI.Level
         [SerializeField] private Button _tankResearch;
         [SerializeField] private Button _helicopterResearch;
         [SerializeField] private Button _planeResearch;
+        [SerializeField] private Button _robotResearch;
         [SerializeField] private int _researchResources;
         private List<TroopTypes> _researchedTroops = new List<TroopTypes>();
         
@@ -35,6 +36,7 @@ namespace UI.Level
             _tankResearch.onClick.AddListener(ResearchTank);
             _helicopterResearch.onClick.AddListener(ResearchHelicopter);
             _planeResearch.onClick.AddListener(ResearchPlane);
+            _robotResearch.onClick.AddListener(ResearchRobot);
         }
 
         private void Unsubscribe()
@@ -45,6 +47,7 @@ namespace UI.Level
             _tankResearch.onClick.RemoveListener(ResearchTank);
             _helicopterResearch.onClick.RemoveListener(ResearchHelicopter);
             _planeResearch.onClick.RemoveListener(ResearchPlane);
+            _robotResearch.onClick.RemoveListener(ResearchRobot);
         }
         
         
@@ -102,7 +105,19 @@ namespace UI.Level
             if (!IsResearched(TroopTypes.Plane) && LevelResources.instance.Crystals >= _researchResources && LevelResources.instance.Energy >= _researchResources &&LevelResources.instance.Food >= _researchResources)
             {
                 _researchedTroops.Add(TroopTypes.Plane);
+                _robotResearch.interactable = true;
                 ResearchEvent.ResearchTroop(TroopTypes.Plane);
+                LevelEventManager.EnergyModify(-_researchResources);
+                LevelEventManager.FoodModify(-_researchResources);
+                LevelEventManager.СrystalsModify(-_researchResources);
+            }
+        }
+        private void ResearchRobot()
+        {
+            if (!IsResearched(TroopTypes.Robot) && LevelResources.instance.Crystals >= _researchResources && LevelResources.instance.Energy >= _researchResources &&LevelResources.instance.Food >= _researchResources)
+            {
+                _researchedTroops.Add(TroopTypes.Robot);
+                ResearchEvent.ResearchTroop(TroopTypes.Robot);
                 LevelEventManager.EnergyModify(-_researchResources);
                 LevelEventManager.FoodModify(-_researchResources);
                 LevelEventManager.СrystalsModify(-_researchResources);

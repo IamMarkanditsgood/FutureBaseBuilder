@@ -7,5 +7,6 @@
         Tank,
         Helicopter,
         Plane,
+        Robot,
     }
 }
