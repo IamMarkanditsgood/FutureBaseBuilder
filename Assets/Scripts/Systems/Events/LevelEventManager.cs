@@ -14,6 +14,7 @@ namespace Systems.Events
         public static event Action<int> OnEnergyModify;
         public static event Action<int> OnPowerModify;
         public static event Action<BuildingLevels> OnBaseImprove;
+
         public static void StructureDestroy(GameObject build)
         {
             OnStructureDestroyed?.Invoke(build);

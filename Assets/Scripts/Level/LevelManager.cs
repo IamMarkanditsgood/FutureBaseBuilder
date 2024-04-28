@@ -1,4 +1,5 @@
 using Systems.Events;
+using Enteties.Army;
 using UnityEngine;
 
 namespace Level
@@ -8,6 +9,7 @@ namespace Level
         [SerializeField] private LevelResources _levelResources;
         [SerializeField] private LevelPrefabs _levelPrefabs;
         [SerializeField] private StructureManager _structureManager;
+        [SerializeField] private ArmyManager _armyManager;
 
         private bool _placingBuild;
 
@@ -48,6 +50,8 @@ namespace Level
 
         private void Initialization()
         {
+            _levelResources.Init();
+            _armyManager.Init();
             _structureManager.Init(_levelPrefabs,ref _levelResources);
         }
     }

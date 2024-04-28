@@ -22,11 +22,11 @@ namespace Enteties.Army
         
         private void Subscribe()
         {
-            //ResearchEvent.OnInfantryResearched
+            ResearchEvent.OnTroopResearched += _armyResearchManager.ResearchTroop;
         }
         private void UnSubscribe()
         {
-            
+            ResearchEvent.OnTroopResearched -= _armyResearchManager.ResearchTroop;
         }
     }
 }

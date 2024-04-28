@@ -1,11 +1,14 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 namespace Level
 {
     [Serializable]
     public class LevelResources
     {
+        public static LevelResources instance;
+        
         [SerializeField] private int _crystals;
         [SerializeField] private int _food;
         [SerializeField] private int _energy;
@@ -34,6 +37,10 @@ namespace Level
             set => _basePower = value;
         }
 
+        public void Init()
+        {
+            instance = this;
+        }
         public void ModifyEnergy(int amount)
         {
             _energy += amount;

@@ -9,6 +9,7 @@ namespace UI.Level
         [SerializeField] private GameObject _structurePanel;
         [SerializeField] private GameObject _shopPanel;
         [SerializeField] private GameObject _brokenPanelWarning;
+        [SerializeField] private GameObject _laboratoryPanel;
     
         private void Start()
         {
@@ -25,6 +26,7 @@ namespace UI.Level
             UIEventManager.OnShowStructurePanel += ShowStructurePanel;
             UIEventManager.OnShowShopPanel += ShowShopPanel;
             UIEventManager.OnBrakePlatformPressed += ShowBrokenPlatformWarning;
+            UIEventManager.OnShowLaboratoryPanel += ShowLaboratoryPanel;
         }
 
         private void Unsubscribe()
@@ -32,6 +34,7 @@ namespace UI.Level
             UIEventManager.OnShowStructurePanel -= ShowStructurePanel;
             UIEventManager.OnShowShopPanel -= ShowShopPanel;
             UIEventManager.OnBrakePlatformPressed -= ShowBrokenPlatformWarning;
+            UIEventManager.OnShowLaboratoryPanel -= ShowLaboratoryPanel;
         }
 
         private void ShowStructurePanel(BasicBuildingManager basicBuildingManager)
@@ -48,6 +51,11 @@ namespace UI.Level
         private void ShowBrokenPlatformWarning()
         {
             _brokenPanelWarning.SetActive(true);
+        }
+
+        private void ShowLaboratoryPanel()
+        {
+            _laboratoryPanel.SetActive(true);
         }
 
     }

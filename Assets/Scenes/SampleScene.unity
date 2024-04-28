@@ -2033,13 +2033,14 @@ GameObject:
   - component: {fileID: 282969126}
   - component: {fileID: 282969128}
   - component: {fileID: 282969127}
+  - component: {fileID: 282969129}
   m_Layer: 5
   m_Name: LaboratoryPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &282969126
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2047,7 +2048,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282969125}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 17.366257, y: 8.3116, z: 8.3116}
   m_ConstrainProportionsScale: 0
@@ -2055,7 +2056,7 @@ RectTransform:
   - {fileID: 1198786871}
   - {fileID: 559589420}
   - {fileID: 1768331233}
-  m_Father: {fileID: 1674949470}
+  m_Father: {fileID: 546060654}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2100,6 +2101,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282969125}
   m_CullTransparentMesh: 1
+--- !u!114 &282969129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282969125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbda0cb65544c60a346ad3cd0c23539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _close: {fileID: 1198786872}
+  _infantryResearch: {fileID: 1931774792}
+  _APCResearch: {fileID: 2011309389}
+  _tankResearch: {fileID: 1720045091}
+  _helicopterResearch: {fileID: 1510480410}
+  _planeResearch: {fileID: 932604549}
+  _researchResources: 12
 --- !u!1001 &283038946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3917,6 +3937,7 @@ RectTransform:
   - {fileID: 1570829227}
   - {fileID: 1765238475}
   - {fileID: 643157530}
+  - {fileID: 282969126}
   m_Father: {fileID: 1674949470}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3939,6 +3960,7 @@ MonoBehaviour:
   _structurePanel: {fileID: 1570829226}
   _shopPanel: {fileID: 1765238474}
   _brokenPanelWarning: {fileID: 643157529}
+  _laboratoryPanel: {fileID: 282969125}
 --- !u!1001 &552226823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7846,6 +7868,9 @@ MonoBehaviour:
     - {fileID: 427937094}
     - {fileID: 949064658}
     - {fileID: 2124885671}
+  _armyManager:
+    _armyResearchManager:
+      _researchedTroops: 
 --- !u!4 &1204254703
 Transform:
   m_ObjectHideFlags: 0
@@ -10687,7 +10712,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 546060654}
-  - {fileID: 282969126}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

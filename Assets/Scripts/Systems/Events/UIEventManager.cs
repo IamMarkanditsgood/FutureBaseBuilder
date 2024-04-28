@@ -7,6 +7,7 @@ namespace Systems.Events
     {
         public static event Action<BasicBuildingManager> OnShowStructurePanel;
         public static event Action<BuyingParameters> OnShowShopPanel;
+        public static event Action OnShowLaboratoryPanel;
         public static event Action OnBrakePlatformPressed;
         public static event Action OnCloseAllPanels;
 
@@ -26,6 +27,10 @@ namespace Systems.Events
         public static void CloseAllPanels()
         {
             OnCloseAllPanels?.Invoke();
+        }
+        public static void ShowLaboratoryPanel()
+        {
+            OnShowLaboratoryPanel?.Invoke();
         }
     }
 }
