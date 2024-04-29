@@ -268,6 +268,8 @@ GameObject:
   - component: {fileID: 838357507920615408}
   - component: {fileID: 7873404502578508894}
   - component: {fileID: 977519222420423320}
+  - component: {fileID: 5302613909555571412}
+  - component: {fileID: 116471311417193010}
   m_Layer: 0
   m_Name: House lv3
   m_TagString: Untagged
@@ -360,8 +362,58 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 8.274254, y: 12.875458, z: 12.051641}
+  m_Center: {x: 0.36354446, y: 5.93773, z: -0.03073883}
+--- !u!54 &5302613909555571412
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5557270903768472545}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &116471311417193010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5557270903768472545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5ea995bff46284ea25217849acd53d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buildsData:
+    _buildingType: 5
+    _buildingLevel: 2
+    _placePosition: {fileID: 0}
+    _isInteractable: 0
+    _updateCrystalsPrice: 0
+    _updateFoodPrice: 0
+    _updateEnergyPrice: 0
+    _information: 
+  _isInUse: 0
+  _canBeImproved: 1
 --- !u!1 &5751105635730673786
 GameObject:
   m_ObjectHideFlags: 0

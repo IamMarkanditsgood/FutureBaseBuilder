@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5530867386083451405}
   - component: {fileID: 1959789891110713043}
   - component: {fileID: 485093230400074537}
+  - component: {fileID: 1774209285457742680}
+  - component: {fileID: 6652991847936442552}
   m_Layer: 0
   m_Name: House lv1
   m_TagString: Untagged
@@ -27,14 +29,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231440816428958619}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.15, y: 0, z: -14.38}
+  m_LocalRotation: {x: 0, y: 0.6427876, z: 0, w: 0.7660445}
+  m_LocalPosition: {x: 6.2859597, y: 0, z: -14.195603}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8438714913549912881}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 80, z: 0}
 --- !u!33 &5530867386083451405
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -104,8 +106,58 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5.9679527, y: 9.202766, z: 7.693492}
+  m_Center: {x: 0.22794962, y: 4.1013823, z: -0.0071959496}
+--- !u!54 &1774209285457742680
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231440816428958619}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &6652991847936442552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231440816428958619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5ea995bff46284ea25217849acd53d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buildsData:
+    _buildingType: 5
+    _buildingLevel: 0
+    _placePosition: {fileID: 0}
+    _isInteractable: 0
+    _updateCrystalsPrice: 0
+    _updateFoodPrice: 0
+    _updateEnergyPrice: 0
+    _information: 
+  _isInUse: 0
+  _canBeImproved: 1
 --- !u!1 &2258675097077774494
 GameObject:
   m_ObjectHideFlags: 0
