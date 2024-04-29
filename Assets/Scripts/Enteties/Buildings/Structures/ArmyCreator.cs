@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Systems.Events;
+using UnityEngine;
 
 namespace Enteties.Buildings
 {
@@ -6,7 +7,7 @@ namespace Enteties.Buildings
     {
         public override void OnMouseDown()
         {
-            Debug.Log("Good");
+            UIEventManager.ShowStructurePanel(this);
         }
         
         public void Destroy()

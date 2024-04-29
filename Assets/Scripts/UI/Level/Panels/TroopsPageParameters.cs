@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 [Serializable]
-public struct TroopsPageParameters
+public class TroopsPageParameters
 {
     [SerializeField] private TroopTypes _troopType;
     [SerializeField] private String _name;
@@ -12,18 +12,18 @@ public struct TroopsPageParameters
     [SerializeField] private int _buyingPriceCrystal;
     [SerializeField] private int _buyingPriceFood;
     [SerializeField] private int _buyingPriceEnergy;
-    [SerializeField] private int _productionTroopQueue;
+    [SerializeField] private int _producedTroopsQueue;
+
+    public int ProducedTroopsQueue
+    {
+        get => _producedTroopsQueue;
+        set => _producedTroopsQueue = value;
+    }
 
     public TroopTypes TroopType
     {
         get => _troopType;
         set => _troopType = value;
-    }
-
-    public int ProductionTroopQueue
-    {
-        get => _productionTroopQueue;
-        set => _productionTroopQueue = value;
     }
 
     public string Name

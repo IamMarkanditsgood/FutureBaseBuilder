@@ -59,6 +59,15 @@ namespace Level
         {
             _basePower += amount;
         }
-        
+
+        public bool IsEnoughResources(int crystals, int energy, int food)
+        {
+            if (crystals <= _crystals && energy <= _energy && food <= _food)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

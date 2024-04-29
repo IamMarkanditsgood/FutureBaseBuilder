@@ -1,6 +1,7 @@
 using Systems.Events;
 using Enteties.Buildings;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace UI.Level
 {
@@ -10,6 +11,7 @@ namespace UI.Level
         [SerializeField] private GameObject _shopPanel;
         [SerializeField] private GameObject _brokenPanelWarning;
         [SerializeField] private GameObject _laboratoryPanel;
+        [SerializeField] private GameObject _troopsProducerPanel;
     
         private void Start()
         {
@@ -27,6 +29,7 @@ namespace UI.Level
             UIEventManager.OnShowShopPanel += ShowShopPanel;
             UIEventManager.OnBrakePlatformPressed += ShowBrokenPlatformWarning;
             UIEventManager.OnShowLaboratoryPanel += ShowLaboratoryPanel;
+            UIEventManager.OnShowTroopsProducerPanel += ShowTroopsProducerPanel;
         }
 
         private void Unsubscribe()
@@ -35,28 +38,34 @@ namespace UI.Level
             UIEventManager.OnShowShopPanel -= ShowShopPanel;
             UIEventManager.OnBrakePlatformPressed -= ShowBrokenPlatformWarning;
             UIEventManager.OnShowLaboratoryPanel -= ShowLaboratoryPanel;
+            UIEventManager.OnShowTroopsProducerPanel -= ShowTroopsProducerPanel;
         }
 
         private void ShowStructurePanel(BasicBuildingManager basicBuildingManager)
         {
-            _structurePanel.SetActive(true);
+            _structurePanel.GetComponent<BasicPanelManager>().Open();
             _structurePanel.GetComponent<StructurePanelManager>().AssemblePanel(basicBuildingManager);
         }
         private void ShowShopPanel(BuyingParameters buyingParameters)
         {
-            _shopPanel.SetActive(true);
+            _shopPanel.GetComponent<BasicPanelManager>().Open();
             _shopPanel.GetComponent<ShopPanelManager>().ConfigureShopPanel(buyingParameters);
         }
 
         private void ShowBrokenPlatformWarning()
         {
-            _brokenPanelWarning.SetActive(true);
+            _brokenPanelWarning.GetComponent<BasicPanelManager>().Open();
         }
 
         private void ShowLaboratoryPanel()
         {
-            _laboratoryPanel.SetActive(true);
+            _laboratoryPanel.GetComponent<BasicPanelManager>().Open();
         }
+        private void ShowTroopsProducerPanel()
+        {
+            _troopsProducerPanel.GetComponent<BasicPanelManager>().Open();
+        }
+
 
     }
 }

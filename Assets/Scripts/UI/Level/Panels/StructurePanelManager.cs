@@ -32,6 +32,7 @@ public class StructurePanelManager : BasicPanelManager
     {
         _destroyButton.GetComponent<Button>().onClick.AddListener(Destroy);
         _updateButton.GetComponent<Button>().onClick.AddListener(Improve);
+        _interactionButton.GetComponent<Button>().onClick.AddListener(Manage);
         _close.onClick.AddListener(ClosePanel);   
     }
 
@@ -39,6 +40,7 @@ public class StructurePanelManager : BasicPanelManager
     {
         _destroyButton.GetComponent<Button>().onClick.RemoveListener(Destroy);
         _updateButton.GetComponent<Button>().onClick.RemoveListener(Improve);
+        _interactionButton.GetComponent<Button>().onClick.RemoveListener(Manage);
         _close.onClick.RemoveListener(ClosePanel);  
     }
     
@@ -87,9 +89,22 @@ public class StructurePanelManager : BasicPanelManager
         }
         
     }
+
+    private void Manage()
+    {
+        if (_basicBuildingManager.BuildsData.BuildingType == BuildingTypes.Laboratory)
+        {
+            UIEventManager.ShowLaboratoryPanel();
+            ClosePanel();
+        }
+        if (_basicBuildingManager.BuildsData.BuildingType == BuildingTypes.ArmyCreator)
+        {
+            UIEventManager.ShowTroopsProducerPanel();
+            ClosePanel();
+        }
+    }
     private void Improve()
     {
-       
         LevelEventManager.ImprovePressed(_basicBuildingManager);
     }
     private void Destroy()

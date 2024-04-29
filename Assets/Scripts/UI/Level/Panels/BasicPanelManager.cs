@@ -7,6 +7,7 @@ namespace UI.Level
     public abstract class BasicPanelManager: MonoBehaviour
     {
         [SerializeField] protected Button _close;
+        [SerializeField] protected GameObject _panel;
 
         public BasicPanelManager()
         {
@@ -17,12 +18,17 @@ namespace UI.Level
         {
             try
             {
-                gameObject.SetActive(false);
+                _panel.SetActive(false);
             }
             catch
             {
                 Debug.Log("Already have been switched off");
             }
+        }
+
+        public virtual void Open()
+        {
+            _panel.SetActive(true);
         }
     }
 }
