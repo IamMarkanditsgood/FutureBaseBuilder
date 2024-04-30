@@ -7,7 +7,7 @@ namespace Enteties.Buildings
     {
         public override void OnMouseDown()
         {
-            UIEventManager.ShowLaboratoryPanel();
+            UIEventManager.ShowStructurePanel(this);
         }
         
         public void Destroy()

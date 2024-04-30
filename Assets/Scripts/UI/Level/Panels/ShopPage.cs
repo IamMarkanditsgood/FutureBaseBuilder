@@ -68,6 +68,7 @@ namespace UI.Level
             ConfigureBuyingParameters(numberOfButton);
             LevelEventManager.CreatePurchasedBuild(_buyingParameters);
             _shopPanel.SetActive(false);
+            LevelEventManager.CloseUI();
         }
         private void PressedButton2()
         {
@@ -75,6 +76,7 @@ namespace UI.Level
             ConfigureBuyingParameters(numberOfButton);
             LevelEventManager.CreatePurchasedBuild(_buyingParameters);
             _shopPanel.SetActive(false);
+            LevelEventManager.CloseUI();
         }
         private void PressedButton3()
         {
@@ -82,6 +84,7 @@ namespace UI.Level
             ConfigureBuyingParameters(numberOfButton);
             LevelEventManager.CreatePurchasedBuild(_buyingParameters);
             _shopPanel.SetActive(false);
+            LevelEventManager.CloseUI();
         }
 
         private void ConfigureBuyingParameters(int numberOfButton)

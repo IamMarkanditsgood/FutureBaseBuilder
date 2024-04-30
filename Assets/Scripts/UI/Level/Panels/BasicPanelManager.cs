@@ -18,6 +18,7 @@ namespace UI.Level
         {
             try
             {
+                LevelEventManager.CloseUI();
                 _panel.SetActive(false);
             }
             catch
@@ -28,6 +29,7 @@ namespace UI.Level
 
         public virtual void Open()
         {
+            LevelEventManager.OpenUI();
             _panel.SetActive(true);
         }
     }

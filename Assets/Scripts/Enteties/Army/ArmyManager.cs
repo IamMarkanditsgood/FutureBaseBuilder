@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Systems.Events;
+using Level;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,7 +11,6 @@ namespace Enteties.Army
     [Serializable]
     public class ArmyManager
     {
-        [SerializeField] private TroopsProducing _divisionsManager;
         [SerializeField] private ArmyResearchManager _armyResearchManager;
         [SerializeField] private ArmyProduceManager _armyProduceManager;
         
@@ -38,23 +38,22 @@ namespace Enteties.Army
     [Serializable]
     public class ArmyProduceManager
     {
-        [SerializeField] private List<TroopsProducing> _troops;
         public void StartToProduceTroop(TroopTypes type)
         {
             AddInQueue(type);
-            for (int i = 0; i < _troops.Count; i++)
+            for (int i = 0; i < LevelArmy.instance.Troops.Count; i++)
             {
-                _troops[i].Produce();
+                LevelArmy.instance.Troops[i].Produce();
             }
         }
 
         private void AddInQueue(TroopTypes type)
         {
-            for (int i = 0; i < _troops.Count; i++)
+            for (int i = 0; i < LevelArmy.instance.Troops.Count; i++)
             {
-                if (type == _troops[i].Type)
+                if (type == LevelArmy.instance.Troops[i].Type)
                 {
-                    _troops[i].QueueOfDivisions++;
+                    LevelArmy.instance.Troops[i].QueueOfDivisions++;
                 }
             }
         }

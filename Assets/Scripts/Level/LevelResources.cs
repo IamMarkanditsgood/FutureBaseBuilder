@@ -13,6 +13,12 @@ namespace Level
         [SerializeField] private int _food;
         [SerializeField] private int _energy;
         [SerializeField] private int _basePower;
+        
+        public void Init()
+        {
+            instance = this;
+        }
+        
         public int Crystals
         {
             get => _crystals;
@@ -37,10 +43,7 @@ namespace Level
             set => _basePower = value;
         }
 
-        public void Init()
-        {
-            instance = this;
-        }
+        
         public void ModifyEnergy(int amount)
         {
             _energy += amount;

@@ -402,12 +402,13 @@ MonoBehaviour:
     _buildingType: 2
     _buildingLevel: 0
     _placePosition: {fileID: 0}
-    _isInteractable: 1
+    _isInteractable: 0
     _updateCrystalsPrice: 0
     _updateFoodPrice: 0
     _updateEnergyPrice: 0
     _information: 55
   _isInUse: 1
   _canBeImproved: 1
+  _isUiOpened: 0
   _producingInterval: 2
   _producedFood: 5

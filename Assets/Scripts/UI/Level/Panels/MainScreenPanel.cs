@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Systems.Events;
 using Enteties.Army;
+using Level;
 using TMPro;
 using UI.Level;
 using UnityEngine;
@@ -33,8 +34,9 @@ public class MainScreenPanel : MonoBehaviour
     private int _helicopterAmount;
     private int _planeAmount;
     private int _robotAmount;
+    
 
-    private void Start()
+    public void Start()
     {
         Subscribe();
         ConfigurePanel();
@@ -66,7 +68,12 @@ public class MainScreenPanel : MonoBehaviour
 
     public void ConfigurePanel()
     {
-        
+        ModifyCrystals(LevelResources.instance.Crystals);
+        ModifyEnergy(LevelResources.instance.Energy);
+        ModifyFood(LevelResources.instance.Food);
+        ModifyPower(LevelResources.instance.BasePower);
+        ConfigureTroops();
+
     }
     #region Resources
     private void ModifyCrystals(int amount)
@@ -93,6 +100,36 @@ public class MainScreenPanel : MonoBehaviour
 
     #region Troops
 
+    private void ConfigureTroops()
+    {
+        _infantryAmount = GetTroopAmount(TroopTypes.Infantry);
+        _apcAmount = GetTroopAmount(TroopTypes.APC);
+        _tankAmount = GetTroopAmount(TroopTypes.Tank);
+        _helicopterAmount = GetTroopAmount(TroopTypes.Helicopter);
+        _planeAmount = GetTroopAmount(TroopTypes.Plane);
+        _robotAmount = GetTroopAmount(TroopTypes.Robot);
+        
+        _infantry.text = _infantryAmount.ToString();
+        _apc.text = _infantryAmount.ToString();
+        _tank.text = _infantryAmount.ToString();
+        _helicopter.text = _infantryAmount.ToString();
+        _plane.text = _infantryAmount.ToString();
+        _robot.text = _infantryAmount.ToString();
+    }
+
+    private int GetTroopAmount(TroopTypes type)
+    {
+        for (int i = 0; i < LevelArmy.instance.Troops.Count; i++)
+        {
+            if (type == LevelArmy.instance.Troops[i].Type)
+            {
+                return LevelArmy.instance.Troops[i].NumberOfDivisions;
+            }
+        }
+
+        return 0;
+    }
+    
     private void ModifyTroop(TroopTypes type)
     {
         switch (type)

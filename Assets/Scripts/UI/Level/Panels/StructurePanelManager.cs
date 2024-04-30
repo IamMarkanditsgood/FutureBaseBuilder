@@ -109,6 +109,7 @@ public class StructurePanelManager : BasicPanelManager
     }
     private void Destroy()
     {
+        LevelEventManager.CloseUI();
         gameObject.SetActive(false);
         LevelEventManager.StructureDestroy(_basicBuildingManager.gameObject);
     }

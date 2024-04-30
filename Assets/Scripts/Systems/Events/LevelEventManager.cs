@@ -15,6 +15,9 @@ namespace Systems.Events
         public static event Action<int> OnPowerModify;
         public static event Action<BuildingLevels> OnBaseImprove;
 
+        public static event Action OnUIPanelsOpened;
+        public static event Action OnUIPanelsClosed;
+
         public static void StructureDestroy(GameObject build)
         {
             OnStructureDestroyed?.Invoke(build);
@@ -50,5 +53,13 @@ namespace Systems.Events
             OnBaseImprove?.Invoke(baseLevel);
         }
 
+        public static void OpenUI()
+        {
+            OnUIPanelsOpened?.Invoke();
+        }
+        public static void CloseUI()
+        {
+            OnUIPanelsClosed?.Invoke();
+        }
     }
 }
