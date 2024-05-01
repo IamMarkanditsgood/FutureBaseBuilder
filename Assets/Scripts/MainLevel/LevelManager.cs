@@ -1,5 +1,6 @@
 using Systems.Events;
-using Enteties.Army;
+using Entities.Army;
+using MainLevel;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -9,12 +10,13 @@ namespace Level
     public class LevelManager : MonoBehaviour
     {
         [SerializeField] private LevelResources _levelResources;
-        [FormerlySerializedAs("_levelArmy")] [SerializeField] private LevelArmyManager _levelArmyManager;
+        [SerializeField] private LevelArmy _levelArmy;
         [SerializeField] private LevelPrefabs _levelPrefabs;
         [SerializeField] private StructureManager _structureManager;
-        [SerializeField] private ArmyManager _armyManager;
+        
 
         [SerializeField] private GameObject _closingScenePanel;
+        private readonly ArmyManager _armyManager = new ArmyManager();
 
         private bool _placingBuild;
 
@@ -27,6 +29,7 @@ namespace Level
         private void OnDestroy()
         {
             UnSubscribe();
+            Disable();
         }
 
         private void Subscribe()
@@ -60,11 +63,15 @@ namespace Level
         private void Initialization()
         {
             _levelResources.Init();
-            _levelArmyManager.Init();
+            _levelArmy.Init();
             _armyManager.Init();
             _structureManager.Init(_levelPrefabs,ref _levelResources);
         }
 
+        private void Disable()
+        {
+            _armyManager.Disable();
+        }
         private void CloseScenePanel()
         {
             _closingScenePanel.SetActive(false);

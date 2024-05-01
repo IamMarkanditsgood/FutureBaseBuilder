@@ -2,8 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Systems.Events;
-using Enteties.Army;
+using Entities.Army.Troops;
 using Level;
+using MainLevel;
 using TMPro;
 using UI.Level;
 using UnityEngine;
@@ -119,11 +120,11 @@ public class MainScreenPanel : MonoBehaviour
 
     private int GetTroopAmount(TroopTypes type)
     {
-        for (int i = 0; i < LevelArmyManager.instance.Troops.Count; i++)
+        for (int i = 0; i < LevelArmy.instance.Troops.Count; i++)
         {
-            if (type == LevelArmyManager.instance.Troops[i].Type)
+            if (type == LevelArmy.instance.Troops[i].Type)
             {
-                return LevelArmyManager.instance.Troops[i].NumberOfDivisions;
+                return LevelArmy.instance.Troops[i].NumberOfDivisions;
             }
         }
 

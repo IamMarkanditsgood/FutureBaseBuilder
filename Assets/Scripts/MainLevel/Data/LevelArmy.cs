@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using Enteties.Army;
+using Entities.Army.Troops;
 using UnityEngine;
 
-namespace Level
+namespace MainLevel
 {
     [Serializable]
-    public class LevelArmyManager
+    public class LevelArmy
     {
-        public static LevelArmyManager instance;
+        public static LevelArmy instance;
         
         [SerializeField] private List<TroopsManager> _troops;
         [SerializeField] private List<TroopTypes> _researchedTroops = new List<TroopTypes>();
@@ -29,15 +29,27 @@ namespace Level
         }
         public bool IsResearched(TroopTypes troop)
         {
-            for (int i = 0; i < LevelArmyManager.instance.ResearchedTroops.Count; i++)
+            for (int i = 0; i < instance.ResearchedTroops.Count; i++)
             {
-                if (troop == LevelArmyManager.instance.ResearchedTroops[i])
+                if (troop == instance.ResearchedTroops[i])
                 {
                     return true;
                 }
             }
 
             return false;
+        }
+
+        public TroopsManager GetTroop(TroopTypes type)
+        {
+            foreach (var troop in instance.Troops)
+            {
+                if (troop.Type == type)
+                {
+                    return troop;
+                }
+            }
+            return null;
         }
     }
 }

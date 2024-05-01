@@ -1,4 +1,4 @@
-﻿namespace Enteties.Army
+﻿namespace Entities.Army.Troops
 {
     public enum TroopTypes
     {

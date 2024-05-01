@@ -13783,7 +13783,7 @@ MonoBehaviour:
     _food: 0
     _energy: 0
     _basePower: 0
-  _levelArmyManager:
+  _levelArmy:
     _troops:
     - _type: 0
       _damage: 0
@@ -13808,13 +13808,13 @@ MonoBehaviour:
       _hp: 0
       _numberOfDivisions: 0
       _queueOfDivisions: 0
-      _produceTime: 5
+      _produceTime: 6
     - _type: 4
       _damage: 0
       _hp: 0
       _numberOfDivisions: 0
       _queueOfDivisions: 0
-      _produceTime: 4
+      _produceTime: 3
     - _type: 5
       _damage: 0
       _hp: 0
@@ -13879,7 +13879,6 @@ MonoBehaviour:
     - {fileID: 1222124452}
     - {fileID: 1967751928}
     - {fileID: 1261461990}
-  _armyManager: {}
   _closingScenePanel: {fileID: 1659476259}
 --- !u!4 &1204254703
 Transform:
@@ -17223,7 +17222,7 @@ RectTransform:
   m_GameObject: {fileID: 1498441472}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.059157588, y: 0.089839175, z: 1}
+  m_LocalScale: {x: 0.059157588, y: 0.07885544, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1631746590}
@@ -17251,7 +17250,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.8798981, y: 0}
+  m_AnchoredPosition: {x: -0.8798981, y: 8.4}
   m_SizeDelta: {x: -29.7489, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1500012561

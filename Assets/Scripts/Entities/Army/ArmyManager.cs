@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Systems.Events;
-using UnityEditor;
-using UnityEngine;
+﻿using Systems.Events;
 
-namespace Enteties.Army
+namespace Entities.Army
 {
-    [Serializable]
     public class ArmyManager
     {
-        [SerializeField] private ArmyResearchManager _armyResearchManager;
-        [SerializeField] private ArmyProduceManager _armyProduceManager;
+        private readonly ArmyResearchManager _armyResearchManager =new ArmyResearchManager();
+        private readonly ArmyProduceManager _armyProduceManager = new ArmyProduceManager();
         
         public void Init()
         {
@@ -28,6 +22,7 @@ namespace Enteties.Army
             ResearchEvent.OnTroopResearched += _armyResearchManager.ResearchTroop;
             TroopsProducingEvents.OnTroopProduce += _armyProduceManager.StartToProduceTroop;
         }
+        
         private void UnSubscribe()
         {
             ResearchEvent.OnTroopResearched -= _armyResearchManager.ResearchTroop;

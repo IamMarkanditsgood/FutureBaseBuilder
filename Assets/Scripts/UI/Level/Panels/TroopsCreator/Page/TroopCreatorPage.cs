@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Systems.Events;
 using Level;
+using MainLevel;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -55,7 +56,7 @@ namespace UI.Level
 
         private void PressedButton1()
         {
-            if (LevelArmyManager.instance.IsResearched(_pageParameters[0].TroopType))
+            if (LevelArmy.instance.IsResearched(_pageParameters[0].TroopType))
             {
                 if (LevelResources.instance.IsEnoughResources(_pageParameters[0].BuyingPriceCrystal,
                     _pageParameters[0].BuyingPriceEnergy, _pageParameters[0].BuyingPriceFood))
@@ -75,7 +76,7 @@ namespace UI.Level
 
         private void PressedButton2()
         {
-            if (LevelArmyManager.instance.IsResearched(_pageParameters[1].TroopType))
+            if (LevelArmy.instance.IsResearched(_pageParameters[1].TroopType))
             {
                 if (LevelResources.instance.IsEnoughResources(_pageParameters[1].BuyingPriceCrystal,
                     _pageParameters[1].BuyingPriceEnergy, _pageParameters[1].BuyingPriceFood))
@@ -95,7 +96,7 @@ namespace UI.Level
 
         private void PressedButton3()
         {
-            if (LevelArmyManager.instance.IsResearched(_pageParameters[2].TroopType))
+            if (LevelArmy.instance.IsResearched(_pageParameters[2].TroopType))
             {
                 if (LevelResources.instance.IsEnoughResources(_pageParameters[2].BuyingPriceCrystal,
                     _pageParameters[2].BuyingPriceEnergy, _pageParameters[2].BuyingPriceFood))

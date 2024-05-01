@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Systems.Events;
-using Enteties.Army;
+using Entities.Army.Troops;
 using TMPro;
 using UI.Level;
 using UnityEngine;

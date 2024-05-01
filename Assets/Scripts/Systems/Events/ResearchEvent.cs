@@ -1,5 +1,5 @@
 ﻿using System;
-using Enteties.Army;
+using Entities.Army.Troops;
 using UnityEngine;
 
 namespace Systems.Events

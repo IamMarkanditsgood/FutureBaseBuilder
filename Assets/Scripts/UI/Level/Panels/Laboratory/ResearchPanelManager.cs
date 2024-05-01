@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Systems.Events;
-using Enteties.Army;
+using Entities.Army.Troops;
 using Level;
 using UnityEngine;
 using UnityEngine.UI;
