@@ -409,6 +409,6 @@ MonoBehaviour:
     _information: 55
   _isInUse: 1
   _canBeImproved: 1
-  _isUiOpened: 0
+  _canBeDestroyed: 1
   _producingInterval: 2
   _producedFood: 5

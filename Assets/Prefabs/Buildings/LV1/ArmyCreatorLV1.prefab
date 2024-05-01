@@ -963,6 +963,7 @@ MonoBehaviour:
     _information: df
   _isInUse: 0
   _canBeImproved: 1
+  _canBeDestroyed: 1
 --- !u!1 &7963956817817195649
 GameObject:
   m_ObjectHideFlags: 0

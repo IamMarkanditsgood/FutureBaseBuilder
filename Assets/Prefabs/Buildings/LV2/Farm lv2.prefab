@@ -241,6 +241,7 @@ MonoBehaviour:
     _information: sd
   _isInUse: 1
   _canBeImproved: 1
+  _canBeDestroyed: 1
   _producingInterval: 2
   _producedFood: 100
 --- !u!1 &3990323600509219260

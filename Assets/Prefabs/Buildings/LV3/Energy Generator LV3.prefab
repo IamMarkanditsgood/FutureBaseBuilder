@@ -1502,6 +1502,9 @@ MonoBehaviour:
     _information: 
   _isInUse: 0
   _canBeImproved: 1
+  _canBeDestroyed: 1
+  _producingInterval: 1
+  _producedEnergy: 0
 --- !u!1 &9166601217790740998
 GameObject:
   m_ObjectHideFlags: 0

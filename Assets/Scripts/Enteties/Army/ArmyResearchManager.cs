@@ -10,7 +10,7 @@ namespace Enteties.Army
     {
         public void ResearchTroop(TroopTypes researchedTroop)
         {
-            LevelArmy.instance.ResearchedTroops.Add(researchedTroop);
+            LevelArmyManager.instance.ResearchedTroops.Add(researchedTroop);
         }
 
         

@@ -1380,7 +1380,7 @@ MonoBehaviour:
     _information: 
   _isInUse: 0
   _canBeImproved: 1
-  _isUiOpened: 0
+  _canBeDestroyed: 1
 --- !u!1 &6659057160290628633
 GameObject:
   m_ObjectHideFlags: 0

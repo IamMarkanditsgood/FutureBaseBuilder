@@ -1992,6 +1992,6 @@ MonoBehaviour:
     _information: 
   _isInUse: 0
   _canBeImproved: 1
-  _isUiOpened: 0
+  _canBeDestroyed: 1
   _producingInterval: 5
   _producedCrystals: 100

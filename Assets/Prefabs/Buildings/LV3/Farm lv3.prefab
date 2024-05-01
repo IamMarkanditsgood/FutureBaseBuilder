@@ -407,6 +407,7 @@ MonoBehaviour:
     _information: 
   _isInUse: 0
   _canBeImproved: 1
+  _canBeDestroyed: 1
   _producingInterval: 2
   _producedFood: 155
 --- !u!1 &2206246699715035119

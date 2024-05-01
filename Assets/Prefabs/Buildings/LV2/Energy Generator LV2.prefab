@@ -241,6 +241,9 @@ MonoBehaviour:
     _information: df
   _isInUse: 0
   _canBeImproved: 1
+  _canBeDestroyed: 1
+  _producingInterval: 1
+  _producedEnergy: 0
 --- !u!1 &2966301222479945982
 GameObject:
   m_ObjectHideFlags: 0

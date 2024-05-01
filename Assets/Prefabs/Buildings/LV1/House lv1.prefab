@@ -158,6 +158,7 @@ MonoBehaviour:
     _information: 
   _isInUse: 0
   _canBeImproved: 1
+  _canBeDestroyed: 1
 --- !u!1 &2258675097077774494
 GameObject:
   m_ObjectHideFlags: 0
