@@ -1,4 +1,4 @@
-﻿namespace Enteties.Buildings
+﻿namespace Entities.Structures.Data_and_Enams
 {
     public enum BuildingLevels
     {

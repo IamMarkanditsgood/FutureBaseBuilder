@@ -1,4 +1,4 @@
-﻿namespace Enteties.Buildings
+﻿namespace Entities.Structures.Interfaces
 {
     public interface IBaseImprover
     {

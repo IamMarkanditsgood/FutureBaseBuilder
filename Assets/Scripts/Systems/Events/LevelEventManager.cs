@@ -1,5 +1,6 @@
 ﻿using System;
-using Enteties.Buildings;
+using Entities.Structures.Buildings;
+using Entities.Structures.Data_and_Enams;
 using UnityEngine;
 
 namespace Systems.Events

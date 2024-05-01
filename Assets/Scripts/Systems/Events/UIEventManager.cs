@@ -1,5 +1,5 @@
 ﻿using System;
-using Enteties.Buildings;
+using Entities.Structures.Buildings;
 
 namespace Systems.Events
 {

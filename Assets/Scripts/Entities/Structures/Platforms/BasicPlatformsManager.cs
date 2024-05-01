@@ -1,17 +1,17 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace Enteties.Buildings.Platforms
+namespace Entities.Structures.Platforms
 {
     public abstract class BasicPlatformsManager : MonoBehaviour
     {
         [SerializeField] protected bool _isActive;
-        [SerializeField] protected GameObject _spawnPosition;
+        [SerializeField] protected GameObject _spawnPoint;
 
-        public GameObject SpawnPosition
+        public GameObject SpawnPoint
         {
-            get => _spawnPosition;
-            set => _spawnPosition = value;
+            get => _spawnPoint;
+            set => _spawnPoint = value;
         }
 
         public abstract void OnMouseDown();

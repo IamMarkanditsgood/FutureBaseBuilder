@@ -1,14 +1,12 @@
-﻿using System;
-using Systems.Events;
+﻿using Systems.Events;
 using UnityEngine;
 
-namespace Enteties.Buildings
+namespace Entities.Structures.Buildings.Manufacture
 {
     public class Farm : BasicManufacturerBuild
     {
         [SerializeField]  private int _producedFood;
-        
-        
+
         public override void StartManufacture()
         {
             producedResources = _producedFood;

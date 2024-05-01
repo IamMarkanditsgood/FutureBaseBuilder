@@ -1,5 +1,5 @@
 ﻿using System;
-using Enteties.Buildings;
+using Entities.Structures.Data_and_Enams;
 using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using UnityEngine.Serialization;

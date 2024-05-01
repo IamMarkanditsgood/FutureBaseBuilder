@@ -1,30 +1,40 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Enteties.Camera
-{
-    public class CameraManager: MonoBehaviour
+namespace Entities.Camera
+{ 
+    public interface ICameraMovement
+    {
+        void MoveCamera(Vector3 direction);
+    }
+
+    public class CameraManager : MonoBehaviour, ICameraMovement
     {
         [SerializeField] private float _movementSpeed = 5f; // Speed of movement
-        public float minX = -5f; // Minimum X position
-        public float maxX = 5f; // Maximum X position
-        public float minZ = -5f; // Minimum Z position
-        public float maxZ = 5f; // Maximum Z position
+        [SerializeField] private Vector2 _xLimitation; // min/ max x movement pos
+        [SerializeField] private Vector2 _zLimitation;// min/ max y movement pos
 
         void Update()
         {
             float horizontalInput = Input.GetAxis("Horizontal");
             float verticalInput = Input.GetAxis("Vertical");
-            
+
             Vector3 movementDirection = new Vector3(horizontalInput, 0f, verticalInput).normalized;
-            
-            Vector3 movementAmount = movementDirection * _movementSpeed * Time.deltaTime;
-            
+
+            MoveCamera(movementDirection);
+        }
+
+        public void MoveCamera(Vector3 direction)
+        {
+            Vector3 movementAmount = direction * _movementSpeed * Time.deltaTime;
             transform.Translate(movementAmount);
-            
+            ClampCameraPosition();
+        }
+
+        private void ClampCameraPosition()
+        {
             Vector3 clampedPosition = transform.position;
-            clampedPosition.x = Mathf.Clamp(clampedPosition.x, minX, maxX);
-            clampedPosition.z = Mathf.Clamp(clampedPosition.z, minZ, maxZ);
+            clampedPosition.x = Mathf.Clamp(clampedPosition.x, _xLimitation.x, _xLimitation.y);
+            clampedPosition.z = Mathf.Clamp(clampedPosition.z, _zLimitation.x, _zLimitation.y);
             transform.position = clampedPosition;
         }
     }

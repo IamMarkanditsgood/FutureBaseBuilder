@@ -1,7 +1,8 @@
 using System;
 using System.Linq;
 using Systems.Events;
-using Enteties.Buildings;
+using Entities.Structures.Buildings;
+using Entities.Structures.Data_and_Enams;
 using TMPro;
 using UI.Level;
 using UnityEngine;

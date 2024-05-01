@@ -1,5 +1,6 @@
 using Systems.Events;
 using Entities.Army;
+using Entities.Structures;
 using MainLevel;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -64,8 +65,8 @@ namespace Level
         {
             _levelResources.Init();
             _levelArmy.Init();
+            _levelPrefabs.Init();
             _armyManager.Init();
-            _structureManager.Init(_levelPrefabs,ref _levelResources);
         }
 
         private void Disable()

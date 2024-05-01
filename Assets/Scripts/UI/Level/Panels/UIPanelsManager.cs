@@ -1,5 +1,5 @@
 using Systems.Events;
-using Enteties.Buildings;
+using Entities.Structures.Buildings;
 using UnityEngine;
 using UnityEngine.Serialization;
 

@@ -1,13 +1,11 @@
 ﻿using Systems.Events;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Enteties.Buildings
+namespace Entities.Structures.Buildings.Manufacture
 {
     public class Reactor : BasicManufacturerBuild
     {
         [SerializeField]  private int _producedEnergy;
-        
         
         public override void StartManufacture()
         {

@@ -1,4 +1,4 @@
-﻿using Enteties.Buildings;
+﻿using Entities.Structures.Data_and_Enams;
 using UnityEngine;
 
 public class BuyingParameters 

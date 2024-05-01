@@ -1,8 +1,7 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Enteties.Buildings
+namespace Entities.Structures.Data_and_Enams
 {
     [Serializable]
     public class BuildsData
@@ -14,8 +13,9 @@ namespace Enteties.Buildings
         [SerializeField] private int _updateCrystalsPrice;
         [SerializeField] private int _updateFoodPrice;
         [SerializeField] private int _updateEnergyPrice;
-        [TextAreaAttribute]
+        [TextArea]
         [SerializeField] private string _information;
+        
         public int UpdateFoodPrice
         {
             get => _updateFoodPrice;
@@ -29,35 +29,35 @@ namespace Enteties.Buildings
         }
         public int UpdateCrystalsPrice 
         {
-            get { return _updateCrystalsPrice; }
-            set { _updateCrystalsPrice = value; }
+            get => _updateCrystalsPrice;
+            set => _updateCrystalsPrice = value;
         }
 
         public string Information
         {
-            get { return _information; }
-            set { _information = value; }
+            get => _information;
+            set => _information = value;
         }
         
         public bool IsInteractable
         {
-            get { return _isInteractable; }
-            set { _isInteractable = value; }
+            get => _isInteractable;
+            set => _isInteractable = value;
         }
         public BuildingTypes BuildingType
         {
-            get { return _buildingType; }
-            set { _buildingType = value; }
+            get => _buildingType;
+            set => _buildingType = value;
         }
         public BuildingLevels BuildingLevel
         {
-            get { return _buildingLevel; }
-            set { _buildingLevel = value; }
+            get => _buildingLevel;
+            set => _buildingLevel = value;
         }
         public GameObject PlacePosition
         {
-            get { return _placePosition; }
-            set { _placePosition = value; }
+            get => _placePosition;
+            set => _placePosition = value;
         }
     }
 }

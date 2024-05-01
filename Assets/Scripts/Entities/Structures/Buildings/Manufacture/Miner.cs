@@ -1,9 +1,7 @@
-﻿using System;
-using Systems.Events;
+﻿using Systems.Events;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Enteties.Buildings
+namespace Entities.Structures.Buildings.Manufacture
 {
     public class Miner : BasicManufacturerBuild
     {

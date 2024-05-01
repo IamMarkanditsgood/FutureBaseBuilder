@@ -1504,7 +1504,7 @@ MonoBehaviour:
   _canBeImproved: 1
   _canBeDestroyed: 1
   _producingInterval: 1
-  _producedEnergy: 0
+  _producedEnergy: 33
 --- !u!1 &9166601217790740998
 GameObject:
   m_ObjectHideFlags: 0

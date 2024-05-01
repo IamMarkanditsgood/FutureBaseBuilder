@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Enteties.Buildings;
+using Entities.Structures.Buildings;
+using Entities.Structures.Data_and_Enams;
 using UnityEngine;
 
 [Serializable]
-public struct LevelPrefabs
+public class LevelPrefabs
 {
+    public static LevelPrefabs instance;
     [SerializeField] private GameObject _foundament;
     [SerializeField] private GameObject _destroyedFoundament;
     [SerializeField] private List<GameObject> _buildsList;
@@ -14,6 +16,11 @@ public struct LevelPrefabs
     public GameObject _DestroyedFoundament => _destroyedFoundament;
     public List<GameObject> BuildsList => _buildsList;
 
+    public void Init()
+    {
+        instance = this;
+    }
+    
     public GameObject GetBuilding(BuildingTypes buildingTypes, BuildingLevels buildingLevels)
     {
         for (int i = 0; i < BuildsList.Count; i++)

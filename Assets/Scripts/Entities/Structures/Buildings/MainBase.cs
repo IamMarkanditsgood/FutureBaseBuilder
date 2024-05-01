@@ -1,6 +1,7 @@
 ﻿using Systems.Events;
+using Entities.Structures.Interfaces;
 
-namespace Enteties.Buildings
+namespace Entities.Structures.Buildings
 {
     public class MainBase : BasicBuildingManager, IBaseImprover
     {

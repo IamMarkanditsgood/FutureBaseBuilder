@@ -1,7 +1,6 @@
 ﻿using Systems.Events;
-using UnityEngine;
 
-namespace Enteties.Buildings
+namespace Entities.Structures.Buildings.Military
 {
     public class House : BasicBuildingManager
     {

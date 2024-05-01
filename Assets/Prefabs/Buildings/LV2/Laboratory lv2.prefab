@@ -790,7 +790,7 @@ MonoBehaviour:
     _buildingType: 4
     _buildingLevel: 1
     _placePosition: {fileID: 0}
-    _isInteractable: 0
+    _isInteractable: 1
     _updateCrystalsPrice: 0
     _updateFoodPrice: 0
     _updateEnergyPrice: 0

@@ -1,6 +1,6 @@
 ﻿using Systems.Events;
 
-namespace Enteties.Buildings.Platforms
+namespace Entities.Structures.Platforms.PlatformsManagers
 {
     public class BrokenPlatform : BasicPlatformsManager
     {

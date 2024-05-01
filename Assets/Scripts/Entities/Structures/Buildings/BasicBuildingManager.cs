@@ -1,8 +1,8 @@
-using System;
+using Entities.Structures.Data_and_Enams;
+using Entities.Structures.Interfaces;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Enteties.Buildings
+namespace Entities.Structures.Buildings
 {
     public abstract class BasicBuildingManager : MonoBehaviour
     {
@@ -10,15 +10,17 @@ namespace Enteties.Buildings
         [SerializeField] protected bool _isInUse;
         [SerializeField] protected bool _canBeImproved = true;
         [SerializeField] protected bool _canBeDestroyed;
-
         
-
-        protected bool _isUiOpened;
+        protected bool isUiOpened;
         
-        public bool CanBeDestroyed
+        public bool CanBeDestroyed => _canBeDestroyed;
+        
+        public BuildsData BuildsData => _buildsData;
+        
+        public bool CanBeImproved
         {
-            get => _canBeDestroyed;
-            set => _canBeDestroyed = value;
+            get => _canBeImproved;
+            set => _canBeImproved = value;
         }
         
         public bool IsInUse
@@ -39,22 +41,6 @@ namespace Enteties.Buildings
                 }
             }
         }
-
-        public bool CanBeImproved
-        {
-            get => _canBeImproved;
-            set => _canBeImproved = value;
-        }
-
-        public BuildsData BuildsData
-        {
-            get { return _buildsData; }
-            set { _buildsData = value; }
-        }
-        /// <summary>
-        /// I need to change it on Pool Object
-        /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
         public void Start()
         {
             IsInUse = true;
@@ -64,12 +50,12 @@ namespace Enteties.Buildings
         {
             IsInUse = true;
         }
-
-        public abstract void OnMouseDown();
-
+        
         public void OnDisable()
         {
             IsInUse = false;
         }
+        
+        public abstract void OnMouseDown();
     }
 }

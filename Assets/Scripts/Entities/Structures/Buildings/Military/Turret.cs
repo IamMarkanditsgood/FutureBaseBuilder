@@ -1,12 +1,14 @@
 ﻿using Systems.Events;
+using Entities.Structures.Interfaces;
 using UnityEngine;
 
-namespace Enteties.Buildings
+namespace Entities.Structures.Buildings.Military
 {
     public class Turret : BasicBuildingManager, IBaseImprover
     {
         [SerializeField] private int _power;
         [SerializeField] private int[] _amountOfPowerForLevel;
+        
         public override void OnMouseDown()
         {
             UIEventManager.ShowStructurePanel(this);

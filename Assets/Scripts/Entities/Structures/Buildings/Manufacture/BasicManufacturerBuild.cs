@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections;
 using Systems.Events;
+using Entities.Structures.Interfaces;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Enteties.Buildings
+namespace Entities.Structures.Buildings.Manufacture
 {
     public abstract class BasicManufacturerBuild : BasicBuildingManager, IManufacturer
     {
@@ -13,7 +12,8 @@ namespace Enteties.Buildings
         protected int producedResources;
         protected Action<int> resourceModifyEvent;
         protected bool canManufacture;
-        private float _timer = 0f;
+        
+        private float _timer;
 
         public void FixedUpdate()
         {
@@ -33,15 +33,14 @@ namespace Enteties.Buildings
         {
             UIEventManager.ShowStructurePanel(this);
         }
-
-        public abstract void StartManufacture();
-        
-
         public void StopManufacture()
         {
             _timer = 0;
             canManufacture = false;
         }
+        
+        public abstract void StartManufacture();
+        
         
     }
 }
