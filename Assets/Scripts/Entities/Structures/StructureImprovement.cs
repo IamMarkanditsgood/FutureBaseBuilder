@@ -2,7 +2,7 @@
 using Entities.Structures.Buildings;
 using Entities.Structures.Data_and_Enams;
 using Entities.Structures.Interfaces;
-using Level;
+using MainLevel.Data;
 using UnityEngine;
 
 namespace Entities.Structures
@@ -37,9 +37,9 @@ namespace Entities.Structures
 
         private void SubtractionResources(int crystals, int energy, int food)
         {
-            LevelEventManager.СrystalsModify(-crystals);
-            LevelEventManager.FoodModify(-energy);
-            LevelEventManager.EnergyModify(-food);
+            ResourcesEventManager.ResourceModify(-crystals,ResourceTypes.Crystals);
+            ResourcesEventManager.ResourceModify(-energy,ResourceTypes.Energy);
+            ResourcesEventManager.ResourceModify(-food,ResourceTypes.Food);
         }
 
         private GameObject SpawnBuild(BasicBuildingManager basicBuildingManager)
@@ -48,7 +48,7 @@ namespace Entities.Structures
             BuildsData buildData = basicBuildingManager.BuildsData;
             Transform spawnPos = buildData.PlacePosition.transform;
                
-            GameObject buildPref = LevelPrefabs.instance.GetBuilding(buildData.BuildingType, nextBuildingLevel);
+            GameObject buildPref = LevelPrefabs.instance.GetBuild(buildData.BuildingType, nextBuildingLevel);
             GameObject newBuild = Object.Instantiate(buildPref, spawnPos.position, Quaternion.identity);
                 
             newBuild.GetComponent<BasicBuildingManager>().BuildsData.PlacePosition = buildData.PlacePosition;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Systems.Events;
 using TMPro;
 using UI.Level;
+using UI.Level.Panels.Shop.Page;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;

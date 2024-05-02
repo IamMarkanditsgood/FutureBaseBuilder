@@ -411,4 +411,5 @@ MonoBehaviour:
   _canBeImproved: 1
   _canBeDestroyed: 1
   _producingInterval: 2
+  _producedResource: 2
   _producedFood: 5

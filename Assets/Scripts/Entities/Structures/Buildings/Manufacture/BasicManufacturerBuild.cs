@@ -1,6 +1,7 @@
 ﻿using System;
 using Systems.Events;
 using Entities.Structures.Interfaces;
+using MainLevel.Data;
 using UnityEngine;
 
 namespace Entities.Structures.Buildings.Manufacture
@@ -8,10 +9,12 @@ namespace Entities.Structures.Buildings.Manufacture
     public abstract class BasicManufacturerBuild : BasicBuildingManager, IManufacturer
     {
         [SerializeField] private float _producingInterval = 1f;
+        [SerializeField] private ResourceTypes _producedResource;
         
         protected int producedResources;
-        protected Action<int> resourceModifyEvent;
+        protected Action<int, ResourceTypes> resourceModifyEvent;
         protected bool canManufacture;
+        
         
         private float _timer;
 
@@ -24,7 +27,7 @@ namespace Entities.Structures.Buildings.Manufacture
                 if (_timer >= _producingInterval)
                 {
                     _timer = 0f;
-                    resourceModifyEvent?.Invoke(producedResources);
+                    resourceModifyEvent?.Invoke(producedResources, _producedResource);
                 }
             }
         }

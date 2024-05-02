@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Entities.Structures.Buildings;
 using Entities.Structures.Data_and_Enams;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Entities.Structures
 {

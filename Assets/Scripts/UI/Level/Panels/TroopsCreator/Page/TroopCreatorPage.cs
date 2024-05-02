@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Systems.Events;
-using Level;
 using MainLevel;
+using MainLevel.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -63,9 +63,9 @@ namespace UI.Level
                 {
                     AddToProductionQueue(0);
                     TroopsProducingEvents.ProduceTroop(_pageParameters[0].TroopType);
-                    LevelEventManager.СrystalsModify(-_pageParameters[0].BuyingPriceCrystal);
-                    LevelEventManager.EnergyModify(-_pageParameters[0].BuyingPriceEnergy);
-                    LevelEventManager.FoodModify(-_pageParameters[0].BuyingPriceFood);
+                    ResourcesEventManager.ResourceModify(-_pageParameters[0].BuyingPriceCrystal, ResourceTypes.Crystals);
+                    ResourcesEventManager.ResourceModify(-_pageParameters[0].BuyingPriceEnergy, ResourceTypes.Energy);
+                    ResourcesEventManager.ResourceModify(-_pageParameters[0].BuyingPriceFood, ResourceTypes.Food);
                 }
             }
             else
@@ -83,9 +83,9 @@ namespace UI.Level
                 {
                     AddToProductionQueue(1);
                     TroopsProducingEvents.ProduceTroop(_pageParameters[1].TroopType);
-                    LevelEventManager.СrystalsModify(-_pageParameters[1].BuyingPriceCrystal);
-                    LevelEventManager.EnergyModify(-_pageParameters[1].BuyingPriceEnergy);
-                    LevelEventManager.FoodModify(-_pageParameters[1].BuyingPriceFood);
+                    ResourcesEventManager.ResourceModify(-_pageParameters[1].BuyingPriceCrystal, ResourceTypes.Crystals);
+                    ResourcesEventManager.ResourceModify(-_pageParameters[1].BuyingPriceEnergy, ResourceTypes.Energy);
+                    ResourcesEventManager.ResourceModify(-_pageParameters[1].BuyingPriceFood, ResourceTypes.Food);
                 }
             }
             else
@@ -103,9 +103,9 @@ namespace UI.Level
                 {
                     AddToProductionQueue(2);
                     TroopsProducingEvents.ProduceTroop(_pageParameters[2].TroopType);
-                    LevelEventManager.СrystalsModify(-_pageParameters[2].BuyingPriceCrystal);
-                    LevelEventManager.EnergyModify(-_pageParameters[2].BuyingPriceEnergy);
-                    LevelEventManager.FoodModify(-_pageParameters[2].BuyingPriceFood);
+                    ResourcesEventManager.ResourceModify(-_pageParameters[2].BuyingPriceCrystal, ResourceTypes.Crystals);
+                    ResourcesEventManager.ResourceModify(-_pageParameters[2].BuyingPriceEnergy, ResourceTypes.Energy);
+                    ResourcesEventManager.ResourceModify(-_pageParameters[2].BuyingPriceFood, ResourceTypes.Food);
                 }
             }
             else

@@ -326,6 +326,7 @@ MonoBehaviour:
   _canBeImproved: 1
   _canBeDestroyed: 1
   _producingInterval: 2
+  _producedResource: 1
   _producedEnergy: 25
 --- !u!1 &1129629795283463752
 GameObject:

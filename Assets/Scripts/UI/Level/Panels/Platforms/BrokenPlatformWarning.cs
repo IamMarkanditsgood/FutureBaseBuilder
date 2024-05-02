@@ -1,4 +1,4 @@
-﻿namespace UI.Level
+﻿namespace UI.Level.Panels.Platforms
 {
     public class BrokenPlatformWarning : BasicPanelManager
     {

@@ -1,5 +1,6 @@
 ﻿using Systems.Events;
 using Entities.Structures.Interfaces;
+using MainLevel.Data;
 using UnityEngine;
 
 namespace Entities.Structures.Buildings.Military
@@ -17,7 +18,7 @@ namespace Entities.Structures.Buildings.Military
         public void Improve()
         {
             _power += _amountOfPowerForLevel[(int) BuildsData.BuildingLevel];
-            LevelEventManager.PowerModify(_power);
+            ResourcesEventManager.ResourceModify(_power, ResourceTypes.Power);
         }
     }
 }

@@ -106,13 +106,13 @@ public class StructurePanelManager : BasicPanelManager
     }
     private void Improve()
     {
-        LevelEventManager.ImprovePressed(_basicBuildingManager);
+        StructuresEventManager.ImprovePressed(_basicBuildingManager);
     }
     private void Destroy()
     {
-        LevelEventManager.CloseUI();
+        SceneEventManager.CloseSceneRoof();
         gameObject.SetActive(false);
-        LevelEventManager.StructureDestroy(_basicBuildingManager.gameObject);
+        StructuresEventManager.StructureDestroy(_basicBuildingManager.gameObject);
     }
     
 }

@@ -1,8 +1,7 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
-namespace Level
+namespace MainLevel.Data
 {
     [Serializable]
     public class LevelResources
@@ -43,26 +42,24 @@ namespace Level
             set => _basePower = value;
         }
 
-        
-        public void ModifyEnergy(int amount)
+        public void ModifyResource(int amount, ResourceTypes type)
         {
-            _energy += amount;
+            switch (type)
+            {
+                case ResourceTypes.Crystals:
+                    _crystals += amount;
+                    break;
+                case ResourceTypes.Energy:
+                    _energy += amount;
+                    break;
+                case ResourceTypes.Food:
+                    _food += amount;
+                    break;
+                case ResourceTypes.Power:
+                    _basePower += amount;
+                    break;
+            }
         }
-
-        public void ModifyCrystals(int amount)
-        {
-            _crystals += amount;
-        }
-
-        public void ModifyFood(int amount)
-        {
-            _food += amount;
-        }
-        public void ModifyPower(int amount)
-        {
-            _basePower += amount;
-        }
-
         public bool IsEnoughResources(int crystals, int energy, int food)
         {
             if (crystals <= _crystals && energy <= _energy && food <= _food)

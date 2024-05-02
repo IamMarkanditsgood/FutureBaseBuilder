@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using Systems.Events;
+using MainLevel.Data;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace UI.Level
+namespace UI.Level.Panels.Shop.Page
 {
     [Serializable]
     public class ShopPage
@@ -65,33 +64,33 @@ namespace UI.Level
         {
             int numberOfButton = 0;
             ConfigureBuyingParameters(numberOfButton);
-            LevelEventManager.CreatePurchasedBuild(_buyingParameters);
+            StructuresEventManager.CreatePurchasedBuild(_buyingParameters);
             _shopPanel.SetActive(false);
-            LevelEventManager.CloseUI();
+            SceneEventManager.CloseSceneRoof();
         }
         private void PressedButton2()
         {
             int numberOfButton = 1;
             ConfigureBuyingParameters(numberOfButton);
-            LevelEventManager.CreatePurchasedBuild(_buyingParameters);
+            StructuresEventManager.CreatePurchasedBuild(_buyingParameters);
             _shopPanel.SetActive(false);
-            LevelEventManager.CloseUI();
+            SceneEventManager.CloseSceneRoof();
         }
         private void PressedButton3()
         {
             int numberOfButton = 2;
             ConfigureBuyingParameters(numberOfButton);
-            LevelEventManager.CreatePurchasedBuild(_buyingParameters);
+            StructuresEventManager.CreatePurchasedBuild(_buyingParameters);
             _shopPanel.SetActive(false);
-            LevelEventManager.CloseUI();
+            SceneEventManager.CloseSceneRoof();
         }
 
         private void ConfigureBuyingParameters(int numberOfButton)
         {
             _buyingParameters.BuildingTypes = _pageParameters[numberOfButton].BuildingTypes;
-            LevelEventManager.EnergyModify(-_pageParameters[numberOfButton].BuyingPriceEnergy); 
-            LevelEventManager.FoodModify(-_pageParameters[numberOfButton].BuyingPriceFood);
-            LevelEventManager.СrystalsModify(-_pageParameters[numberOfButton].BuyingPriceCrystal);
+            ResourcesEventManager.ResourceModify(-_pageParameters[numberOfButton].BuyingPriceEnergy, ResourceTypes.Energy); 
+            ResourcesEventManager.ResourceModify(-_pageParameters[numberOfButton].BuyingPriceFood, ResourceTypes.Food);
+            ResourcesEventManager.ResourceModify(-_pageParameters[numberOfButton].BuyingPriceCrystal, ResourceTypes.Crystals);
         }
     }
 }

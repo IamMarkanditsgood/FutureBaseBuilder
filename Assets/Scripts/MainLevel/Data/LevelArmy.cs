@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Entities.Army.Troops;
 using UnityEngine;
 
-namespace MainLevel
+namespace MainLevel.Data
 {
     [Serializable]
     public class LevelArmy
@@ -23,20 +23,21 @@ namespace MainLevel
             get => _researchedTroops;
             set => _researchedTroops = value;
         }
+        
         public void Init()
         {
             instance = this;
         }
+        
         public bool IsResearched(TroopTypes troop)
         {
-            for (int i = 0; i < instance.ResearchedTroops.Count; i++)
+            foreach (var troopType in instance.ResearchedTroops)
             {
-                if (troop == instance.ResearchedTroops[i])
+                if (troop == troopType)
                 {
                     return true;
                 }
             }
-
             return false;
         }
 

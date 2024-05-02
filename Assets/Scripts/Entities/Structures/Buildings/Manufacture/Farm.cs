@@ -10,7 +10,7 @@ namespace Entities.Structures.Buildings.Manufacture
         public override void StartManufacture()
         {
             producedResources = _producedFood;
-            resourceModifyEvent = LevelEventManager.FoodModify;
+            resourceModifyEvent = ResourcesEventManager.ResourceModify;
             canManufacture = true;
         }
      

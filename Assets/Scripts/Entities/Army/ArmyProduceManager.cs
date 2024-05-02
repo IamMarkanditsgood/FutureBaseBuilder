@@ -1,5 +1,6 @@
 ﻿using Entities.Army.Troops;
 using MainLevel;
+using MainLevel.Data;
 
 namespace Entities.Army
 {

@@ -2,141 +2,98 @@
 using System.Collections.Generic;
 using Systems.Events;
 using Entities.Army.Troops;
-using Level;
+using MainLevel.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.Level
+namespace UI.Level.Panels.Laboratory
 {
     public class ResearchPanelManager : BasicPanelManager
     {
-        [SerializeField] private Button _infantryResearch;
-        [SerializeField] private Button _APCResearch;
-        [SerializeField] private Button _tankResearch;
-        [SerializeField] private Button _helicopterResearch;
-        [SerializeField] private Button _planeResearch;
-        [SerializeField] private Button _robotResearch;
-        [SerializeField] private int _researchResources;
-        private List<TroopTypes> _researchedTroops = new List<TroopTypes>();
-        
-        private void Start()
-        {
-            Subscribe();
-        }
-        private void OnDestroy()
-        {
-            Unsubscribe();
-        }
+         [SerializeField] private Button[] _researchButtons;
+    [SerializeField] private int _researchResources;
+    
+    private Dictionary<TroopTypes, bool> _researchedTroops = new Dictionary<TroopTypes, bool>();
 
-        private void Subscribe()
-        {
-            _close.onClick.AddListener(ClosePanel);
-            _infantryResearch.onClick.AddListener(ResearchInfantry);
-            _APCResearch.onClick.AddListener(ResearchAPC);
-            _tankResearch.onClick.AddListener(ResearchTank);
-            _helicopterResearch.onClick.AddListener(ResearchHelicopter);
-            _planeResearch.onClick.AddListener(ResearchPlane);
-            _robotResearch.onClick.AddListener(ResearchRobot);
-        }
-
-        private void Unsubscribe()
-        {
-            _close.onClick.RemoveListener(ClosePanel);
-            _infantryResearch.onClick.RemoveListener(ResearchInfantry);
-            _APCResearch.onClick.RemoveListener(ResearchAPC);
-            _tankResearch.onClick.RemoveListener(ResearchTank);
-            _helicopterResearch.onClick.RemoveListener(ResearchHelicopter);
-            _planeResearch.onClick.RemoveListener(ResearchPlane);
-            _robotResearch.onClick.RemoveListener(ResearchRobot);
-        }
-        
-        
-        private void ResearchInfantry()
-        {
-            if (!IsResearched(TroopTypes.Infantry) && LevelResources.instance.Crystals >= _researchResources && LevelResources.instance.Energy >= _researchResources &&LevelResources.instance.Food >= _researchResources)
-            {
-                _researchedTroops.Add(TroopTypes.Infantry);
-                _APCResearch.interactable = true;
-                ResearchEvent.ResearchTroop(TroopTypes.Infantry);
-                
-                LevelEventManager.EnergyModify(-_researchResources);
-                LevelEventManager.FoodModify(-_researchResources);
-                LevelEventManager.СrystalsModify(-_researchResources);
-            }
-        }
-        private void ResearchAPC()
-        {
-            if (!IsResearched(TroopTypes.APC) && LevelResources.instance.Crystals >= _researchResources && LevelResources.instance.Energy >= _researchResources &&LevelResources.instance.Food >= _researchResources)
-            {
-                _researchedTroops.Add(TroopTypes.APC);
-                _tankResearch.interactable = true;
-                ResearchEvent.ResearchTroop(TroopTypes.APC);
-                LevelEventManager.EnergyModify(-_researchResources);
-                LevelEventManager.FoodModify(-_researchResources);
-                LevelEventManager.СrystalsModify(-_researchResources);
-            }
-        }
-        private void ResearchTank()
-        {
-            if (!IsResearched(TroopTypes.Tank) && LevelResources.instance.Crystals >= _researchResources && LevelResources.instance.Energy >= _researchResources &&LevelResources.instance.Food >= _researchResources)
-            {
-                _researchedTroops.Add(TroopTypes.Tank);
-                _helicopterResearch.interactable = true;
-                ResearchEvent.ResearchTroop(TroopTypes.Tank);
-                LevelEventManager.EnergyModify(-_researchResources);
-                LevelEventManager.FoodModify(-_researchResources);
-                LevelEventManager.СrystalsModify(-_researchResources);
-            }
-        }
-        private void ResearchHelicopter()
-        {
-            if (!IsResearched(TroopTypes.Helicopter)  && LevelResources.instance.Crystals >= _researchResources && LevelResources.instance.Energy >= _researchResources &&LevelResources.instance.Food >= _researchResources)
-            {
-                _researchedTroops.Add(TroopTypes.Helicopter);
-                _planeResearch.interactable = true;
-                ResearchEvent.ResearchTroop(TroopTypes.Helicopter);
-                LevelEventManager.EnergyModify(-_researchResources);
-                LevelEventManager.FoodModify(-_researchResources);
-                LevelEventManager.СrystalsModify(-_researchResources);
-            }
-        }
-        private void ResearchPlane()
-        {
-            if (!IsResearched(TroopTypes.Plane) && LevelResources.instance.Crystals >= _researchResources && LevelResources.instance.Energy >= _researchResources &&LevelResources.instance.Food >= _researchResources)
-            {
-                _researchedTroops.Add(TroopTypes.Plane);
-                _robotResearch.interactable = true;
-                ResearchEvent.ResearchTroop(TroopTypes.Plane);
-                LevelEventManager.EnergyModify(-_researchResources);
-                LevelEventManager.FoodModify(-_researchResources);
-                LevelEventManager.СrystalsModify(-_researchResources);
-            }
-        }
-        private void ResearchRobot()
-        {
-            if (!IsResearched(TroopTypes.Robot) && LevelResources.instance.Crystals >= _researchResources && LevelResources.instance.Energy >= _researchResources &&LevelResources.instance.Food >= _researchResources)
-            {
-                _researchedTroops.Add(TroopTypes.Robot);
-                ResearchEvent.ResearchTroop(TroopTypes.Robot);
-                LevelEventManager.EnergyModify(-_researchResources);
-                LevelEventManager.FoodModify(-_researchResources);
-                LevelEventManager.СrystalsModify(-_researchResources);
-            }
-        }
-
-        private bool IsResearched(TroopTypes troop)
-        {
-            for (int i = 0; i < _researchedTroops.Count; i++)
-            {
-                if (_researchedTroops[i] == troop)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-        
+    private void Start()
+    {
+        Subscribe();
+        InitializeResearchStatus();
     }
-    
-    
+
+    private void OnDestroy()
+    {
+        Unsubscribe();
+    }
+
+    private void Subscribe()
+    {
+        _close.onClick.AddListener(ClosePanel);
+        foreach (var button in _researchButtons)
+        {
+            button.onClick.AddListener(() => ResearchTroop((TroopTypes)System.Enum.Parse(typeof(TroopTypes), button.name)));
+        }
+    }
+
+    private void Unsubscribe()
+    {
+        _close.onClick.RemoveListener(ClosePanel);
+        foreach (var button in _researchButtons)
+        {
+            button.onClick.RemoveAllListeners();
+        }
+    }
+
+    private void InitializeResearchStatus()
+    {
+        foreach (var troopType in (TroopTypes[])Enum.GetValues(typeof(TroopTypes)))
+        {
+            _researchedTroops[troopType] = false;
+        }
+    }
+
+    private void ResearchTroop(TroopTypes troopType)
+    {
+        if (!_researchedTroops.ContainsKey(troopType))
+        {
+            return;
+        }
+
+        if (!HasEnoughResources())
+        {
+            return;
+        }
+
+        _researchedTroops[troopType] = true;
+        ResearchEvent.ResearchTroop(troopType);
+        UpdateResearchButton();
+        ConsumeResources();
+    }
+
+    private bool HasEnoughResources()
+    {
+        return LevelResources.instance.Crystals >= _researchResources &&
+               LevelResources.instance.Energy >= _researchResources &&
+               LevelResources.instance.Food >= _researchResources;
+    }
+
+    private void ConsumeResources()
+    {
+        ResourcesEventManager.ResourceModify(-_researchResources, ResourceTypes.Crystals);
+        ResourcesEventManager.ResourceModify(-_researchResources, ResourceTypes.Energy);
+        ResourcesEventManager.ResourceModify(-_researchResources, ResourceTypes.Food);
+    }
+
+    private void UpdateResearchButton()
+    {
+        for (int i = 0; i < _researchButtons.Length; i++)
+        {
+            if (!_researchButtons[i].interactable)
+            {
+                _researchButtons[i].interactable = true;
+                return;
+            }
+        }
+    }
+    }
 }

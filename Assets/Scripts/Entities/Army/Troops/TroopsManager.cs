@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Systems.Events;
+using MainLevel.Data;
 using UnityEngine;
 
 namespace Entities.Army.Troops
@@ -64,7 +65,7 @@ namespace Entities.Army.Troops
         {
             _queueOfDivisions--;
             _numberOfDivisions++;
-            LevelEventManager.PowerModify(_damage);
+            ResourcesEventManager.ResourceModify(_damage,ResourceTypes.Power);
             TroopsProducingEvents.ProducingFinished(Type);
         }
     }

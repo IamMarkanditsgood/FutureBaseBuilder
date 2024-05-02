@@ -3461,12 +3461,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _close: {fileID: 1198786872}
   _panel: {fileID: 282969125}
-  _infantryResearch: {fileID: 1931774792}
-  _APCResearch: {fileID: 2011309389}
-  _tankResearch: {fileID: 1720045091}
-  _helicopterResearch: {fileID: 1510480410}
-  _planeResearch: {fileID: 932604549}
-  _robotResearch: {fileID: 1474653106}
+  _researchButtons:
+  - {fileID: 1931774792}
+  - {fileID: 2011309389}
+  - {fileID: 1720045091}
+  - {fileID: 1510480410}
+  - {fileID: 932604549}
+  - {fileID: 1474653106}
   _researchResources: 12
 --- !u!1001 &283038946
 PrefabInstance:
@@ -11114,7 +11115,7 @@ GameObject:
   - component: {fileID: 932604550}
   - component: {fileID: 932604549}
   m_Layer: 5
-  m_Name: PlaneButton
+  m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13954,7 +13955,7 @@ MonoBehaviour:
       - {fileID: 1222124452}
       - {fileID: 1967751928}
       - {fileID: 1261461990}
-  _closingScenePanel: {fileID: 1659476259}
+  _closingSceneRoof: {fileID: 1659476259}
 --- !u!4 &1204254703
 Transform:
   m_ObjectHideFlags: 0
@@ -16806,7 +16807,7 @@ GameObject:
   - component: {fileID: 1474653107}
   - component: {fileID: 1474653106}
   m_Layer: 5
-  m_Name: RobotButton
+  m_Name: Robot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17704,7 +17705,7 @@ GameObject:
   - component: {fileID: 1510480411}
   - component: {fileID: 1510480410}
   m_Layer: 5
-  m_Name: HelicopterButton
+  m_Name: Helicopter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19064,7 +19065,7 @@ GameObject:
   - component: {fileID: 1659476262}
   - component: {fileID: 1659476261}
   m_Layer: 0
-  m_Name: Closing scene Panel
+  m_Name: Closing scene ruth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19859,7 +19860,7 @@ GameObject:
   - component: {fileID: 1720045092}
   - component: {fileID: 1720045091}
   m_Layer: 5
-  m_Name: TankButton
+  m_Name: Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22164,7 +22165,7 @@ GameObject:
   - component: {fileID: 1931774793}
   - component: {fileID: 1931774792}
   m_Layer: 5
-  m_Name: InfantryButton
+  m_Name: Infantry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23071,7 +23072,7 @@ GameObject:
   - component: {fileID: 2011309390}
   - component: {fileID: 2011309389}
   m_Layer: 5
-  m_Name: APCButton
+  m_Name: APC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
