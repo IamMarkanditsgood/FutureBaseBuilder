@@ -1,10 +1,8 @@
 ﻿using System;
 using Entities.Structures.Data_and_Enams;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace UI.Level
+namespace UI.Level.Panels.Shop
 {
     [Serializable]
     public struct BuildBuyPanelParameters

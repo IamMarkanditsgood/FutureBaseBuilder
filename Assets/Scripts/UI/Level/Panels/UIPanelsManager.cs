@@ -1,9 +1,10 @@
 using Systems.Events;
 using Entities.Structures.Buildings;
+using UI.Level.Panels.Shop;
+using UI.Level.Panels.Structure;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace UI.Level
+namespace UI.Level.Panels
 {
     public class UIPanelsManager : MonoBehaviour
     {

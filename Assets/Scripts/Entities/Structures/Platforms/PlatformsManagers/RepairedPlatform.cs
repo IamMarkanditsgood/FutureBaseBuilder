@@ -1,4 +1,5 @@
 ﻿using Systems.Events;
+using UI.Level.Panels.Shop;
 
 namespace Entities.Structures.Platforms.PlatformsManagers
 {
@@ -9,7 +10,7 @@ namespace Entities.Structures.Platforms.PlatformsManagers
             BuyingParameters buBuyingParameters = new BuyingParameters();
             
             buBuyingParameters.ChoosedPlatform = gameObject;
-            buBuyingParameters.ChoosetPosition = _spawnPoint;
+            buBuyingParameters.ChoosedPosition = _spawnPoint;
             
             UIEventManager.ShowShopPanel(buBuyingParameters);
                 

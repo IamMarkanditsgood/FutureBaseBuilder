@@ -1,5 +1,6 @@
 ﻿using System;
 using Entities.Structures.Buildings;
+using UI.Level.Panels.Shop;
 
 namespace Systems.Events
 {

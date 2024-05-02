@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using Systems.Events;
-using MainLevel;
 using MainLevel.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.Level
+namespace UI.Level.Panels.TroopsCreator.Page
 {
     [Serializable]
     public class TroopCreatorPage
@@ -56,56 +55,36 @@ namespace UI.Level
 
         private void PressedButton1()
         {
-            if (LevelArmy.instance.IsResearched(_pageParameters[0].TroopType))
-            {
-                if (LevelResources.instance.IsEnoughResources(_pageParameters[0].BuyingPriceCrystal,
-                    _pageParameters[0].BuyingPriceEnergy, _pageParameters[0].BuyingPriceFood))
-                {
-                    AddToProductionQueue(0);
-                    TroopsProducingEvents.ProduceTroop(_pageParameters[0].TroopType);
-                    ResourcesEventManager.ResourceModify(-_pageParameters[0].BuyingPriceCrystal, ResourceTypes.Crystals);
-                    ResourcesEventManager.ResourceModify(-_pageParameters[0].BuyingPriceEnergy, ResourceTypes.Energy);
-                    ResourcesEventManager.ResourceModify(-_pageParameters[0].BuyingPriceFood, ResourceTypes.Food);
-                }
-            }
-            else
-            {
-                Debug.Log("IsNotResearched!");
-            }
+            TroopsPageParameters troopsPageParameter = _pageParameters[0];
+            StartProducingTroop(troopsPageParameter);
         }
 
         private void PressedButton2()
         {
-            if (LevelArmy.instance.IsResearched(_pageParameters[1].TroopType))
-            {
-                if (LevelResources.instance.IsEnoughResources(_pageParameters[1].BuyingPriceCrystal,
-                    _pageParameters[1].BuyingPriceEnergy, _pageParameters[1].BuyingPriceFood))
-                {
-                    AddToProductionQueue(1);
-                    TroopsProducingEvents.ProduceTroop(_pageParameters[1].TroopType);
-                    ResourcesEventManager.ResourceModify(-_pageParameters[1].BuyingPriceCrystal, ResourceTypes.Crystals);
-                    ResourcesEventManager.ResourceModify(-_pageParameters[1].BuyingPriceEnergy, ResourceTypes.Energy);
-                    ResourcesEventManager.ResourceModify(-_pageParameters[1].BuyingPriceFood, ResourceTypes.Food);
-                }
-            }
-            else
-            {
-                Debug.Log("IsNotResearched!");
-            }
+            TroopsPageParameters troopsPageParameter = _pageParameters[1];
+            StartProducingTroop(troopsPageParameter);
         }
 
         private void PressedButton3()
         {
-            if (LevelArmy.instance.IsResearched(_pageParameters[2].TroopType))
+            TroopsPageParameters troopsPageParameter = _pageParameters[2];
+            StartProducingTroop(troopsPageParameter);
+        }
+
+        private void StartProducingTroop(TroopsPageParameters troopsPageParameter)
+        {
+            if (LevelArmy.instance.IsResearched(troopsPageParameter.TroopType))
             {
-                if (LevelResources.instance.IsEnoughResources(_pageParameters[2].BuyingPriceCrystal,
-                    _pageParameters[2].BuyingPriceEnergy, _pageParameters[2].BuyingPriceFood))
+                int[] prices = new int[3];
+                prices[0] = troopsPageParameter.BuyingPriceCrystal;
+                prices[1] = troopsPageParameter.BuyingPriceEnergy;
+                prices[2] = troopsPageParameter.BuyingPriceFood;
+                
+                if (LevelResources.instance.IsEnoughResources(prices[0],prices[1],prices[2]))
                 {
-                    AddToProductionQueue(2);
-                    TroopsProducingEvents.ProduceTroop(_pageParameters[2].TroopType);
-                    ResourcesEventManager.ResourceModify(-_pageParameters[2].BuyingPriceCrystal, ResourceTypes.Crystals);
-                    ResourcesEventManager.ResourceModify(-_pageParameters[2].BuyingPriceEnergy, ResourceTypes.Energy);
-                    ResourcesEventManager.ResourceModify(-_pageParameters[2].BuyingPriceFood, ResourceTypes.Food);
+                    AddToProductionQueue(0);
+                    TroopsProducingEvents.ProduceTroop(troopsPageParameter.TroopType);
+                    ModifyResources(troopsPageParameter);
                 }
             }
             else
@@ -113,11 +92,17 @@ namespace UI.Level
                 Debug.Log("IsNotResearched!");
             }
         }
-
         private void AddToProductionQueue(int queueIndex)
         {
             _pageParameters[queueIndex].ProducedTroopsQueue++;
             _productionTroopQueueText[queueIndex].text = _pageParameters[queueIndex].ProducedTroopsQueue.ToString();
+        }
+
+        private void ModifyResources(TroopsPageParameters troopsPageParameter)
+        {
+            ResourcesEventManager.ResourceModify(-troopsPageParameter.BuyingPriceCrystal, ResourceTypes.Crystals);
+            ResourcesEventManager.ResourceModify(-troopsPageParameter.BuyingPriceEnergy, ResourceTypes.Energy);
+            ResourcesEventManager.ResourceModify(-troopsPageParameter.BuyingPriceFood, ResourceTypes.Food);
         }
         
         

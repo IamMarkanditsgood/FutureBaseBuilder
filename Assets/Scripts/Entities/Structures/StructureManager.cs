@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Entities.Structures.Buildings;
 using Entities.Structures.Data_and_Enams;
+using UI.Level.Panels.Shop;
 using UnityEngine;
 
 namespace Entities.Structures

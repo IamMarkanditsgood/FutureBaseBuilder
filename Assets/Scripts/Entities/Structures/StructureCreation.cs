@@ -2,6 +2,7 @@
 using Entities.Structures.Buildings;
 using Entities.Structures.Data_and_Enams;
 using MainLevel.Data;
+using UI.Level.Panels.Shop;
 using UnityEngine;
 
 namespace Entities.Structures
@@ -12,10 +13,10 @@ namespace Entities.Structures
         {
             GameObject pref = FindStructureByType(buyingParameters.BuildingTypes, BuildingLevels.Lv1);
             
-            GameObject newBuild = Object.Instantiate(pref, buyingParameters.ChoosetPosition.transform.position, Quaternion.identity);
+            GameObject newBuild = Object.Instantiate(pref, buyingParameters.ChoosedPosition.transform.position, Quaternion.identity);
             
             BuildsData buildsData = newBuild.GetComponent<BasicBuildingManager>().BuildsData;
-            buildsData.PlacePosition = buyingParameters.ChoosetPosition;
+            buildsData.PlacePosition = buyingParameters.ChoosedPosition;
             
             Object.Destroy(buyingParameters.ChoosedPlatform);
         }

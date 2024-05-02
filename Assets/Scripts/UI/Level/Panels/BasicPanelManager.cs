@@ -2,14 +2,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.Level
+namespace UI.Level.Panels
 {
     public abstract class BasicPanelManager: MonoBehaviour
     {
         [SerializeField] protected Button _close;
         [SerializeField] protected GameObject _panel;
 
-        public BasicPanelManager()
+        protected BasicPanelManager()
         {
             UIEventManager.OnCloseAllPanels += ClosePanel;
         }

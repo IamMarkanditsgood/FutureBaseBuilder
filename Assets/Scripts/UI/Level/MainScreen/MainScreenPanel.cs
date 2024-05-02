@@ -163,7 +163,5 @@ namespace UI.Level.MainScreen
         }
         
         #endregion
-    
-    
     }
 }
