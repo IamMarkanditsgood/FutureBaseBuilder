@@ -1,4 +1,5 @@
 ﻿using System;
+using Systems;
 using UnityEngine;
 
 namespace Entities.Structures.Data_and_Enams
@@ -6,8 +7,6 @@ namespace Entities.Structures.Data_and_Enams
     [Serializable]
     public class BuildsData
     {
-        [SerializeField] private BuildingTypes _buildingType;
-        [SerializeField] private BuildingLevels _buildingLevel;
         [SerializeField] private GameObject _placePosition;
         [SerializeField] private bool _isInteractable;
         [SerializeField] private int _updateCrystalsPrice;
@@ -43,16 +42,6 @@ namespace Entities.Structures.Data_and_Enams
         {
             get => _isInteractable;
             set => _isInteractable = value;
-        }
-        public BuildingTypes BuildingType
-        {
-            get => _buildingType;
-            set => _buildingType = value;
-        }
-        public BuildingLevels BuildingLevel
-        {
-            get => _buildingLevel;
-            set => _buildingLevel = value;
         }
         public GameObject PlacePosition
         {

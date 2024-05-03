@@ -1347,17 +1347,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildsData:
-    _buildingType: 6
-    _buildingLevel: 2
     _placePosition: {fileID: 0}
     _isInteractable: 1
     _updateCrystalsPrice: 0
     _updateFoodPrice: 0
     _updateEnergyPrice: 0
-    _information: 
+    _information: Use to create troops
   _isInUse: 0
   _canBeImproved: 1
   _canBeDestroyed: 1
+  _structureTypesType: 6
+  _structureLevels: 2
 --- !u!1 &6659057160290628633
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Systems;
 using Systems.Events;
 using Entities.Structures.Data_and_Enams;
 using Entities.Structures.Platforms.PlatformsManagers;
@@ -14,7 +15,13 @@ namespace Entities.Structures
     {
         [SerializeField] private List<BrokenPlatform> _brokenPlatforms;
 
-        public void RepairPlatforms(BuildingLevels baseLevel, BuildingLevels maxStructureLevel)
+        public List<BrokenPlatform> BrokenPlatforms
+        {
+            get => _brokenPlatforms;
+            set => _brokenPlatforms = value;
+        }
+
+        public void RepairPlatforms(StructureLevels baseLevel, StructureLevels maxStructureLevel)
         {
             List<BrokenPlatform> brokenPlatforms = new List<BrokenPlatform>();
             
@@ -34,11 +41,14 @@ namespace Entities.Structures
             {
                 Transform spawnPosition = brokenPlatforms[i].SpawnPoint.transform;
                 GameObject newPlatform = Object.Instantiate(LevelPrefabs.instance.Foundament, spawnPosition.position, Quaternion.identity);
+                newPlatform.transform.parent = LevelStructures.instance.StructuresContainer;
+                LevelStructures.instance.StructuresOnScene.Add(newPlatform);
                 
                 newPlatform.GetComponent<RepairedPlatform>().SpawnPoint = brokenPlatforms[i].SpawnPoint;
                 
-                Object.Destroy(brokenPlatforms[i].gameObject);
+                LevelStructures.instance.StructuresOnScene.Remove(brokenPlatforms[i].gameObject);
                 _brokenPlatforms.Remove(brokenPlatforms[i]);
+                Object.Destroy(brokenPlatforms[i].gameObject);
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Systems;
 using Entities.Structures.Buildings;
 using Entities.Structures.Data_and_Enams;
 using UI.Level.Panels.Shop;
@@ -10,13 +11,19 @@ namespace Entities.Structures
     [Serializable]
     public class StructureManager
     {
-        [SerializeField] private List<Vector3> _structurePositions;
-        [SerializeField] private BuildingLevels _maxStructureLevel;
+        [SerializeField] private StructureLevels _maxStructureLevel;
         [SerializeField] private PlatformRepairer _platformRepairer;
-        
+
+        public PlatformRepairer PlatformRepairer
+        {
+            get => _platformRepairer;
+            set => _platformRepairer = value;
+        }
+
         private StructureCreation _structureCreation = new StructureCreation();
         private StructureDestroying _structureDestroying = new StructureDestroying();
         private StructureImprovement _structureImprovement = new StructureImprovement();
+        
 
         public void DestroyStructure(GameObject structure)
         {
@@ -33,7 +40,7 @@ namespace Entities.Structures
             _structureImprovement.ImproveStructure(basicBuildingManager, _maxStructureLevel);
         }
         
-        public void RepairPlatforms(BuildingLevels baseLevel)
+        public void RepairPlatforms(StructureLevels baseLevel)
         {
             _platformRepairer.RepairPlatforms(baseLevel ,_maxStructureLevel);
         }

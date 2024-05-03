@@ -1,15 +1,19 @@
+using Systems;
 using Entities.Structures.Data_and_Enams;
 using Entities.Structures.Interfaces;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Entities.Structures.Buildings
 {
-    public abstract class BasicBuildingManager : MonoBehaviour
+    public abstract class BasicBuildingManager : MonoBehaviour, ISavableStructure
     {
         [SerializeField] protected BuildsData _buildsData;
         [SerializeField] protected bool _isInUse;
         [SerializeField] protected bool _canBeImproved = true;
         [SerializeField] protected bool _canBeDestroyed;
+        [FormerlySerializedAs("_savedStructuresTypeType")] [SerializeField] private StructureTypes _structureTypesType;
+        [FormerlySerializedAs("_savedStructureLevels")] [SerializeField] private StructureLevels _structureLevels;
         
         protected bool isUiOpened;
         
@@ -57,5 +61,19 @@ namespace Entities.Structures.Buildings
         }
         
         public abstract void OnMouseDown();
+        public StructureTypes GetSavedStructureType()
+        {
+            return _structureTypesType;
+        }
+
+        public StructureLevels GetSavedStructureLevel()
+        {
+            return _structureLevels;
+        }
+
+        public Vector3 GetSavedStructureCoordinates()
+        {
+            return gameObject.transform.position;
+        }
     }
 }

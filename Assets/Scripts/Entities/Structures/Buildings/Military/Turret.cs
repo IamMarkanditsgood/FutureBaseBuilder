@@ -17,7 +17,7 @@ namespace Entities.Structures.Buildings.Military
 
         public void Improve()
         {
-            _power += _amountOfPowerForLevel[(int) BuildsData.BuildingLevel];
+            _power += _amountOfPowerForLevel[(int) GetSavedStructureLevel()];
             ResourcesEventManager.ResourceModify(_power, ResourceTypes.Power);
         }
     }

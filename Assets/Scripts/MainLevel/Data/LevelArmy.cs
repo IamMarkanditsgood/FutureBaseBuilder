@@ -11,7 +11,7 @@ namespace MainLevel.Data
         public static LevelArmy instance;
         
         [SerializeField] private List<TroopsManager> _troops;
-        [SerializeField] private List<TroopTypes> _researchedTroops = new List<TroopTypes>();
+        [SerializeField] private List<TroopTypes> _researchedTroops = new List<TroopTypes>() ;
 
         public List<TroopsManager> Troops
         {

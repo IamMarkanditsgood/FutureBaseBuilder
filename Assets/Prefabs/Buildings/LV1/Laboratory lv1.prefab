@@ -646,17 +646,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildsData:
-    _buildingType: 4
-    _buildingLevel: 0
     _placePosition: {fileID: 0}
     _isInteractable: 1
     _updateCrystalsPrice: 0
     _updateFoodPrice: 0
     _updateEnergyPrice: 0
-    _information: SAD
+    _information: Use for research
   _isInUse: 0
   _canBeImproved: 1
   _canBeDestroyed: 1
+  _structureTypesType: 4
+  _structureLevels: 0
 --- !u!1 &8117735858527531875
 GameObject:
   m_ObjectHideFlags: 0

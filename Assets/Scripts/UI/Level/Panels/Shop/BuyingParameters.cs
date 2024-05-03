@@ -1,4 +1,5 @@
-﻿using Entities.Structures.Data_and_Enams;
+﻿using Systems;
+using Entities.Structures.Data_and_Enams;
 using UnityEngine;
 
 namespace UI.Level.Panels.Shop
@@ -9,6 +10,6 @@ namespace UI.Level.Panels.Shop
 
         public GameObject ChoosedPosition { get; set; }
 
-        public BuildingTypes BuildingTypes { get; set; }
+        public StructureTypes BuildingTypes { get; set; }
     }
 }

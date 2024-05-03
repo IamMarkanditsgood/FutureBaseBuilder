@@ -231,18 +231,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildsData:
-    _buildingType: 2
-    _buildingLevel: 1
     _placePosition: {fileID: 0}
     _isInteractable: 0
     _updateCrystalsPrice: 0
     _updateFoodPrice: 0
     _updateEnergyPrice: 0
-    _information: sd
+    _information: Produces food
   _isInUse: 1
   _canBeImproved: 1
   _canBeDestroyed: 1
+  _structureTypesType: 2
+  _structureLevels: 1
   _producingInterval: 2
+  _producedResource: 2
   _producedFood: 100
 --- !u!1 &3990323600509219260
 GameObject:

@@ -231,4 +231,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isActive: 0
-  _spawnPosition: {fileID: 0}
+  _spawnPoint: {fileID: 0}
+  _savedStructuresType: 8
+  _savedStructureLevels: 3

@@ -63,28 +63,30 @@ namespace UI.Level.Panels.Shop.Page
         private void PressedButton1()
         {
             int numberOfButton = 0;
-            ConfigureBuyingParameters(numberOfButton);
-            StructuresEventManager.CreatePurchasedBuild(_buyingParameters);
-            _shopPanel.SetActive(false);
-            SceneEventManager.CloseSceneRoof();
+            TryToBuyStructure(numberOfButton);
         }
         private void PressedButton2()
         {
             int numberOfButton = 1;
-            ConfigureBuyingParameters(numberOfButton);
-            StructuresEventManager.CreatePurchasedBuild(_buyingParameters);
-            _shopPanel.SetActive(false);
-            SceneEventManager.CloseSceneRoof();
+            TryToBuyStructure(numberOfButton);
         }
         private void PressedButton3()
         {
             int numberOfButton = 2;
-            ConfigureBuyingParameters(numberOfButton);
-            StructuresEventManager.CreatePurchasedBuild(_buyingParameters);
-            _shopPanel.SetActive(false);
-            SceneEventManager.CloseSceneRoof();
+            TryToBuyStructure(numberOfButton);
         }
 
+        private void TryToBuyStructure(int numberOfButton)
+        {
+            if (LevelResources.instance.IsEnoughResources(_pageParameters[numberOfButton].BuyingPriceCrystal,_pageParameters[numberOfButton].BuyingPriceEnergy,_pageParameters[numberOfButton].BuyingPriceFood))
+            {
+                ConfigureBuyingParameters(numberOfButton);
+                StructuresEventManager.CreatePurchasedBuild(_buyingParameters);
+                _shopPanel.SetActive(false);
+                SceneEventManager.CloseSceneRoof();
+            }
+        }
+        
         private void ConfigureBuyingParameters(int numberOfButton)
         {
             _buyingParameters.BuildingTypes = _pageParameters[numberOfButton].BuildingTypes;

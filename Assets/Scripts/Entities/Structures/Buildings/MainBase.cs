@@ -12,7 +12,7 @@ namespace Entities.Structures.Buildings
         
         public void Improve()
         {
-            SceneEventManager.BaseImproved(BuildsData.BuildingLevel);
+            SceneEventManager.BaseImproved(GetSavedStructureLevel());
 
         }
     }

@@ -5,11 +5,12 @@ namespace Systems.Events
 {
     public static class SceneEventManager
     {
-        public static event Action<BuildingLevels> OnBaseImprove;
+        public static event Action<StructureLevels> OnBaseImprove;
         public static event Action OnSceneRoofClose;
         public static event Action OnSceneRoofOpen;
+        public static event Action OnMainMenuPressed;
         
-        public static void BaseImproved(BuildingLevels baseLevel)
+        public static void BaseImproved(StructureLevels baseLevel)
         {
             OnBaseImprove?.Invoke(baseLevel);
         }
@@ -22,6 +23,11 @@ namespace Systems.Events
         public static void CloseSceneRoof()
         {
             OnSceneRoofOpen?.Invoke();
+        }
+
+        public static void MainMenuPressed()
+        {
+            OnMainMenuPressed?.Invoke();
         }
     }
 }

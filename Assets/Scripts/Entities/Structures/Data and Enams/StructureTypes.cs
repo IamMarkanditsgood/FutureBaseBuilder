@@ -1,6 +1,6 @@
 ﻿namespace Entities.Structures.Data_and_Enams
 {
-    public enum BuildingTypes
+    public enum StructureTypes
     {
         MainBase,
         Miner,
@@ -10,5 +10,7 @@
         House,
         ArmyCreator,
         Turret,
+        Platform,
+        BrokenPlatform,
     }
 }

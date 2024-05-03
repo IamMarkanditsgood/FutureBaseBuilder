@@ -2114,16 +2114,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildsData:
-    _buildingType: 0
-    _buildingLevel: 2
     _placePosition: {fileID: 0}
     _isInteractable: 0
     _updateCrystalsPrice: 4
     _updateFoodPrice: 6
     _updateEnergyPrice: 5
-    _information: 322
+    _information: When improved, it increases free construction spaces on the base
   _isInUse: 0
-  _canBeImproved: 1
+  _canBeImproved: 0
+  _canBeDestroyed: 0
+  _structureTypesType: 0
+  _structureLevels: 2
 --- !u!1 &8487482227623415023
 GameObject:
   m_ObjectHideFlags: 0

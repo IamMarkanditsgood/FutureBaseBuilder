@@ -782,7 +782,7 @@ Transform:
   m_GameObject: {fileID: 5152738353150422328}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.99, y: 0, z: -8.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -882,10 +882,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &6094546603354885058
 MonoBehaviour:
@@ -900,16 +900,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildsData:
-    _buildingType: 0
-    _buildingLevel: 1
     _placePosition: {fileID: 0}
     _isInteractable: 0
     _updateCrystalsPrice: 2
     _updateFoodPrice: 3
     _updateEnergyPrice: 4
-    _information: 2
+    _information: When improved, it increases free construction spaces on the base
   _isInUse: 0
   _canBeImproved: 1
+  _canBeDestroyed: 0
+  _structureTypesType: 0
+  _structureLevels: 1
 --- !u!1 &5352946717559828311
 GameObject:
   m_ObjectHideFlags: 0

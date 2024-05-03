@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Systems;
 using Entities.Structures.Buildings;
 using Entities.Structures.Data_and_Enams;
 using UnityEngine;
@@ -23,12 +24,12 @@ namespace MainLevel.Data
             instance = this;
         }
     
-        public GameObject GetBuild(BuildingTypes buildingTypes, BuildingLevels buildingLevels)
+        public GameObject GetBuild(StructureTypes buildingTypes, StructureLevels buildingLevels)
         {
             for (int i = 0; i < BuildsList.Count; i++)
             {
-                if (BuildsList[i].GetComponent<BasicBuildingManager>().BuildsData.BuildingType == buildingTypes &&
-                    BuildsList[i].GetComponent<BasicBuildingManager>().BuildsData.BuildingLevel == buildingLevels)
+                if (BuildsList[i].GetComponent<ISavableStructure>().GetSavedStructureType() == buildingTypes &&
+                    BuildsList[i].GetComponent<ISavableStructure>().GetSavedStructureLevel() == buildingLevels)
                 {
                     return BuildsList[i];
                 }

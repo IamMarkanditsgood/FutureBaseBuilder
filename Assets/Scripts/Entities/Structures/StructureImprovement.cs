@@ -1,4 +1,5 @@
-﻿using Systems.Events;
+﻿using Systems;
+using Systems.Events;
 using Entities.Structures.Buildings;
 using Entities.Structures.Data_and_Enams;
 using Entities.Structures.Interfaces;
@@ -9,7 +10,7 @@ namespace Entities.Structures
 {
     public class StructureImprovement
     {
-        public void ImproveStructure(BasicBuildingManager basicBuildingManager, BuildingLevels maxStructureLevel)
+        public void ImproveStructure(BasicBuildingManager basicBuildingManager, StructureLevels maxStructureLevel)
         {
             if (!basicBuildingManager.CanBeImproved)
             {
@@ -27,6 +28,7 @@ namespace Entities.Structures
                 ToggleImprovementPossibility(newBuild, basicBuildingManager, maxStructureLevel);
 
                 GameObject olderBuild = basicBuildingManager.gameObject;
+                LevelStructures.instance.StructuresOnScene.Remove(olderBuild);
                 Object.Destroy(olderBuild);
                 
                 IsMainBaseImprovement(newBuild);
@@ -44,21 +46,23 @@ namespace Entities.Structures
 
         private GameObject SpawnBuild(BasicBuildingManager basicBuildingManager)
         {
-            BuildingLevels nextBuildingLevel = basicBuildingManager.BuildsData.BuildingLevel + 1;
+            StructureLevels nextBuildingLevel = basicBuildingManager.GetSavedStructureLevel() + 1;
             BuildsData buildData = basicBuildingManager.BuildsData;
             Transform spawnPos = buildData.PlacePosition.transform;
                
-            GameObject buildPref = LevelPrefabs.instance.GetBuild(buildData.BuildingType, nextBuildingLevel);
+            GameObject buildPref = LevelPrefabs.instance.GetBuild(basicBuildingManager.GetSavedStructureType(), nextBuildingLevel);
             GameObject newBuild = Object.Instantiate(buildPref, spawnPos.position, Quaternion.identity);
-                
+            newBuild.transform.parent = LevelStructures.instance.StructuresContainer;
+            LevelStructures.instance.StructuresOnScene.Add(newBuild);
+            
             newBuild.GetComponent<BasicBuildingManager>().BuildsData.PlacePosition = buildData.PlacePosition;
 
             return newBuild;
         }
 
-        private void ToggleImprovementPossibility(GameObject build,BasicBuildingManager basicBuildingManager, BuildingLevels maxStructureLevel)
+        private void ToggleImprovementPossibility(GameObject build,BasicBuildingManager basicBuildingManager, StructureLevels maxStructureLevel)
         {
-            if (basicBuildingManager.BuildsData.BuildingLevel + 1 == maxStructureLevel)
+            if (basicBuildingManager.GetSavedStructureLevel() + 1 == maxStructureLevel)
             {
                 build.GetComponent<BasicBuildingManager>().CanBeImproved = false;
             }

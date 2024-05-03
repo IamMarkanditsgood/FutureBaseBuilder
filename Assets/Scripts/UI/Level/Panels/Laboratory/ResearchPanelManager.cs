@@ -46,12 +46,21 @@ namespace UI.Level.Panels.Laboratory
 
     private void InitializeResearchStatus()
     {
+        int i = 0;
         foreach (var troopType in (TroopTypes[])Enum.GetValues(typeof(TroopTypes)))
         {
-            _researchedTroops[troopType] = false;
+            _researchedTroops[troopType] = LevelArmy.instance.IsResearched(troopType);
+            if (LevelArmy.instance.IsResearched(troopType))
+            {
+                _researchButtons[i].interactable = true;
+                _researchButtons[i+1].interactable = true;
+            }
+            
+            i++;
         }
-    }
 
+        _researchButtons[0].interactable = true;
+    }
     private void ResearchTroop(TroopTypes troopType)
     {
         if (!_researchedTroops.ContainsKey(troopType))

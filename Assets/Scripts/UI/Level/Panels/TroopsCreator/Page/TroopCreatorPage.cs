@@ -41,6 +41,7 @@ namespace UI.Level.Panels.TroopsCreator.Page
 
         public void ConfigurePage( List<TroopsPageParameters> troopsPageParameters)
         {
+            
             _pageParameters = troopsPageParameters;
             for (int i = 0; i < _pageParameters.Count; i++)
             {
@@ -56,22 +57,22 @@ namespace UI.Level.Panels.TroopsCreator.Page
         private void PressedButton1()
         {
             TroopsPageParameters troopsPageParameter = _pageParameters[0];
-            StartProducingTroop(troopsPageParameter);
+            StartProducingTroop(troopsPageParameter,0);
         }
 
         private void PressedButton2()
         {
             TroopsPageParameters troopsPageParameter = _pageParameters[1];
-            StartProducingTroop(troopsPageParameter);
+            StartProducingTroop(troopsPageParameter,1);
         }
 
         private void PressedButton3()
         {
             TroopsPageParameters troopsPageParameter = _pageParameters[2];
-            StartProducingTroop(troopsPageParameter);
+            StartProducingTroop(troopsPageParameter,2);
         }
 
-        private void StartProducingTroop(TroopsPageParameters troopsPageParameter)
+        private void StartProducingTroop(TroopsPageParameters troopsPageParameter, int indexOfPageParameter)
         {
             if (LevelArmy.instance.IsResearched(troopsPageParameter.TroopType))
             {
@@ -82,7 +83,7 @@ namespace UI.Level.Panels.TroopsCreator.Page
                 
                 if (LevelResources.instance.IsEnoughResources(prices[0],prices[1],prices[2]))
                 {
-                    AddToProductionQueue(0);
+                    AddToProductionQueue(troopsPageParameter,indexOfPageParameter);
                     TroopsProducingEvents.ProduceTroop(troopsPageParameter.TroopType);
                     ModifyResources(troopsPageParameter);
                 }
@@ -92,10 +93,10 @@ namespace UI.Level.Panels.TroopsCreator.Page
                 Debug.Log("IsNotResearched!");
             }
         }
-        private void AddToProductionQueue(int queueIndex)
+        private void AddToProductionQueue(TroopsPageParameters troopsPageParameter, int indexOfPageParameter)
         {
-            _pageParameters[queueIndex].ProducedTroopsQueue++;
-            _productionTroopQueueText[queueIndex].text = _pageParameters[queueIndex].ProducedTroopsQueue.ToString();
+            troopsPageParameter.ProducedTroopsQueue++;
+            _productionTroopQueueText[indexOfPageParameter].text = _pageParameters[indexOfPageParameter].ProducedTroopsQueue.ToString();
         }
 
         private void ModifyResources(TroopsPageParameters troopsPageParameter)

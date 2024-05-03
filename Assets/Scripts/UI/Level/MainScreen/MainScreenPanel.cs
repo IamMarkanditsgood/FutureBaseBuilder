@@ -59,13 +59,14 @@ namespace UI.Level.MainScreen
         {
             ResourcesEventManager.OnResourceModify += ModifyResource;
             TroopsProducingEvents.OnProducingFinished += ModifyTroop;
+            _mainMenuButton.onClick.AddListener(MainMenuPressed);
         }
         
         private void Unsubscribe()
         {
             ResourcesEventManager.OnResourceModify -= ModifyResource;
             TroopsProducingEvents.OnProducingFinished -= ModifyTroop;
-              
+            _mainMenuButton.onClick.AddListener(MainMenuPressed);
         }
 
         public void ConfigurePanel()
@@ -77,6 +78,12 @@ namespace UI.Level.MainScreen
             ConfigureTroops();
 
         }
+
+        private void MainMenuPressed()
+        {
+            SceneEventManager.MainMenuPressed();
+        }
+        
         #region Resources
         private void ModifyResource(int amount, ResourceTypes type)
         {

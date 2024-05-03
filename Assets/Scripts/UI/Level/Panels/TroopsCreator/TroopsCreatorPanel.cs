@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Systems.Events;
 using Entities.Army.Troops;
+using MainLevel.Data;
 using TMPro;
 using UI.Level.Panels.TroopsCreator.Page;
 using UnityEngine;
@@ -27,17 +28,17 @@ namespace UI.Level.Panels.TroopsCreator
 
         public void Start()
         {
+            ReConfigure();
             Subscribe();
+            
         }
 
         public override void Open()
         {
             _panel.SetActive(true);
-            
             _currentPage = 0;
             int textPageNumber = _currentPage + 1;
             _pageText.text = textPageNumber.ToString();
-            
             _troopCreatorPage.ConfigurePage(_pages[_currentPage].troopsPageParameterses);
         }
     
@@ -46,13 +47,14 @@ namespace UI.Level.Panels.TroopsCreator
             Unsubscribe();
         }
 
+        
+        
         private void Subscribe()
         {
             _close.onClick.AddListener(ClosePanel);   
             _nextPageButton.onClick.AddListener(NextPage);
             _prevPageButton.onClick.AddListener(PrevPage);
             _troopCreatorPage.Subscribe();
-            
             TroopsProducingEvents.OnProducingFinished += RemoveFromProductionQueue;
         }
 
@@ -62,10 +64,23 @@ namespace UI.Level.Panels.TroopsCreator
             _nextPageButton.onClick.RemoveListener(NextPage);
             _prevPageButton.onClick.RemoveListener(PrevPage);
             _troopCreatorPage.Unsubscribe();
-            
             TroopsProducingEvents.OnProducingFinished -= RemoveFromProductionQueue;
         }
-
+        private void ReConfigure()
+        {
+            int troopIndex = 0;
+            for (int i = 0;i < _pages.Count;i++)
+            {
+                for (int j = 0; j < _pages[i].troopsPageParameterses.Count; j++)
+                {
+                    _pages[i].troopsPageParameterses[j].ProducedTroopsQueue =
+                        LevelArmy.instance.Troops[troopIndex].QueueOfDivisions;
+                    
+                    troopIndex++;
+                }
+            }
+            _troopCreatorPage.ConfigurePage(_pages[_currentPage].troopsPageParameterses);
+        }
         private void RemoveFromProductionQueue(TroopTypes producedTroop)
         {
             for (int i = 0;i < _pages.Count;i++)

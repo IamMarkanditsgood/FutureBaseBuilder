@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Systems;
 using Systems.Events;
 using Entities.Structures.Buildings;
 using Entities.Structures.Data_and_Enams;
@@ -59,32 +60,34 @@ namespace UI.Level.Panels.Structure
 
         private void SetText(BuildsData buildsData)
         {
-            _name.text = buildsData.BuildingType.ToString();
-            _level.text = buildsData.BuildingLevel.ToString();
+            _name.text = _basicBuildingManager.GetSavedStructureType().ToString();
+            _level.text = _basicBuildingManager.GetSavedStructureLevel().ToString();
             _price.text = "Crystals: " + buildsData.UpdateCrystalsPrice + " Energy: " + buildsData.UpdateEnergyPrice + " Food: " + buildsData.UpdateFoodPrice;
             _information.text = buildsData.Information;
         }
 
         private void SetButtons(BuildsData buildsData)
         {
-            BuildingLevels lastLevel = Enum.GetValues(typeof(BuildingLevels)).Cast<BuildingLevels>().Last();
+            StructureLevels lastLevel = Enum.GetValues(typeof(StructureLevels)).Cast<StructureLevels>().Last();
             
-            _updateButton.SetActive(buildsData.BuildingLevel != lastLevel && _basicBuildingManager.CanBeImproved);
+            _updateButton.SetActive(_basicBuildingManager.GetSavedStructureLevel() != lastLevel && _basicBuildingManager.CanBeImproved);
             _destroyButton.SetActive(_basicBuildingManager.CanBeDestroyed);
             _interactionButton.SetActive(buildsData.IsInteractable);
         }
 
         private void Manage()
         {
-            if (_basicBuildingManager.BuildsData.BuildingType == BuildingTypes.Laboratory)
+            if (_basicBuildingManager.GetSavedStructureType() == StructureTypes.Laboratory)
             {
+                ClosePanel();
+                SceneEventManager.OpenSceneRoof();
                 UIEventManager.ShowLaboratoryPanel();
-                ClosePanel();
             }
-            if (_basicBuildingManager.BuildsData.BuildingType == BuildingTypes.ArmyCreator)
+            if (_basicBuildingManager.GetSavedStructureType() == StructureTypes.ArmyCreator)
             {
-                UIEventManager.ShowTroopsProducerPanel();
                 ClosePanel();
+                SceneEventManager.OpenSceneRoof();
+                UIEventManager.ShowTroopsProducerPanel();
             }
         }
         private void Improve()

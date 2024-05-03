@@ -66,7 +66,5 @@ namespace UI.Level.Panels
         {
             _troopsProducerPanel.GetComponent<BasicPanelManager>().Open();
         }
-
-
     }
 }
