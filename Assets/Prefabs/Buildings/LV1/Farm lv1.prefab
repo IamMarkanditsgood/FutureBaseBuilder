@@ -401,9 +401,9 @@ MonoBehaviour:
   _buildsData:
     _placePosition: {fileID: 0}
     _isInteractable: 0
-    _updateCrystalsPrice: 0
-    _updateFoodPrice: 0
-    _updateEnergyPrice: 0
+    _updateCrystalsPrice: 50
+    _updateFoodPrice: 50
+    _updateEnergyPrice: 50
     _information: Produces food
   _isInUse: 1
   _canBeImproved: 1
@@ -412,4 +412,4 @@ MonoBehaviour:
   _structureLevels: 0
   _producingInterval: 2
   _producedResource: 2
-  _producedFood: 5
+  _producedFood: 20

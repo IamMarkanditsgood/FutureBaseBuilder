@@ -1066,9 +1066,9 @@ MonoBehaviour:
   _buildsData:
     _placePosition: {fileID: 0}
     _isInteractable: 0
-    _updateCrystalsPrice: 0
-    _updateFoodPrice: 0
-    _updateEnergyPrice: 0
+    _updateCrystalsPrice: 50
+    _updateFoodPrice: 50
+    _updateEnergyPrice: 50
     _information: Produces crystals
   _isInUse: 1
   _canBeImproved: 1
@@ -1077,7 +1077,7 @@ MonoBehaviour:
   _structureLevels: 0
   _producingInterval: 2
   _producedResource: 0
-  _producedCrystals: 26
+  _producedCrystals: 25
 --- !u!1 &7028801690366956659
 GameObject:
   m_ObjectHideFlags: 0

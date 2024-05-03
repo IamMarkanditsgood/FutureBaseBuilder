@@ -742,9 +742,9 @@ MonoBehaviour:
   _buildsData:
     _placePosition: {fileID: 0}
     _isInteractable: 0
-    _updateCrystalsPrice: 1
-    _updateFoodPrice: 2
-    _updateEnergyPrice: 3
+    _updateCrystalsPrice: 50
+    _updateFoodPrice: 50
+    _updateEnergyPrice: 50
     _information: Use for base power
   _isInUse: 0
   _canBeImproved: 1
@@ -752,7 +752,7 @@ MonoBehaviour:
   _structureTypesType: 7
   _structureLevels: 1
   _power: 0
-  _amountOfPowerForLevel: 0a000000140000001e000000
+  _amountOfPowerForLevel: 0a00000064000000e8030000
 --- !u!54 &133999234257463678
 Rigidbody:
   m_ObjectHideFlags: 0

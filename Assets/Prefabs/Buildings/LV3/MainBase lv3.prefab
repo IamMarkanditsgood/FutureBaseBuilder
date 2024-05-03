@@ -2116,9 +2116,9 @@ MonoBehaviour:
   _buildsData:
     _placePosition: {fileID: 0}
     _isInteractable: 0
-    _updateCrystalsPrice: 4
-    _updateFoodPrice: 6
-    _updateEnergyPrice: 5
+    _updateCrystalsPrice: 500
+    _updateFoodPrice: 500
+    _updateEnergyPrice: 500
     _information: When improved, it increases free construction spaces on the base
   _isInUse: 0
   _canBeImproved: 0

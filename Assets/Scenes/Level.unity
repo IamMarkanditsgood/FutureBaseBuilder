@@ -5636,7 +5636,7 @@ MonoBehaviour:
   - {fileID: 1510480410}
   - {fileID: 932604549}
   - {fileID: 1474653106}
-  _researchResources: 12
+  _researchResources: 500
 --- !u!1001 &283038946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11060,9 +11060,9 @@ MonoBehaviour:
   _buildsData:
     _placePosition: {fileID: 1483981945}
     _isInteractable: 0
-    _updateCrystalsPrice: 0
-    _updateFoodPrice: 0
-    _updateEnergyPrice: 0
+    _updateCrystalsPrice: 50
+    _updateFoodPrice: 50
+    _updateEnergyPrice: 50
     _information: Produces food
   _isInUse: 1
   _canBeImproved: 1
@@ -11071,7 +11071,7 @@ MonoBehaviour:
   _structureLevels: 0
   _producingInterval: 2
   _producedResource: 2
-  _producedFood: 5
+  _producedFood: 20
 --- !u!54 &541969140
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22807,41 +22807,41 @@ MonoBehaviour:
   _levelArmy:
     _troops:
     - _type: 0
-      _damage: 0
+      _damage: 20
       _hp: 0
       _numberOfDivisions: 0
       _queueOfDivisions: 0
-      _produceTime: 2
+      _produceTime: 10
     - _type: 1
-      _damage: 0
+      _damage: 30
       _hp: 0
       _numberOfDivisions: 0
       _queueOfDivisions: 0
-      _produceTime: 3
+      _produceTime: 20
     - _type: 2
-      _damage: 0
+      _damage: 40
       _hp: 0
       _numberOfDivisions: 0
       _queueOfDivisions: 0
-      _produceTime: 4
+      _produceTime: 30
     - _type: 3
-      _damage: 0
+      _damage: 50
       _hp: 0
       _numberOfDivisions: 0
       _queueOfDivisions: 0
-      _produceTime: 6
+      _produceTime: 35
     - _type: 4
-      _damage: 0
+      _damage: 60
       _hp: 0
       _numberOfDivisions: 0
       _queueOfDivisions: 0
-      _produceTime: 3
+      _produceTime: 40
     - _type: 5
-      _damage: 0
+      _damage: 70
       _hp: 0
       _numberOfDivisions: 0
       _queueOfDivisions: 0
-      _produceTime: 3
+      _produceTime: 50
     _researchedTroops: 
   _levelPrefabs:
     _foundament: {fileID: 4153822797272330794, guid: 4f9129de7002f0d49b7fe08bb66e9fd0, type: 3}
@@ -28359,9 +28359,9 @@ MonoBehaviour:
   _buildsData:
     _placePosition: {fileID: 293090855}
     _isInteractable: 0
-    _updateCrystalsPrice: 3
-    _updateFoodPrice: 4
-    _updateEnergyPrice: 5
+    _updateCrystalsPrice: 50
+    _updateFoodPrice: 50
+    _updateEnergyPrice: 50
     _information: When improved, it increases free construction spaces on the base
   _isInUse: 1
   _canBeImproved: 1
@@ -30115,45 +30115,45 @@ MonoBehaviour:
     - _troopType: 0
       _name: Infantry
       _image: {fileID: 21300000, guid: d7cb34dcf20efe8429e540201a60b3e0, type: 3}
-      _buyingPriceCrystal: 2
-      _buyingPriceFood: 55
-      _buyingPriceEnergy: 2
+      _buyingPriceCrystal: 20
+      _buyingPriceFood: 20
+      _buyingPriceEnergy: 20
       _producedTroopsQueue: 0
     - _troopType: 1
       _name: APC
       _image: {fileID: 21300000, guid: 521e5c1839d772349b691d856062e3d7, type: 3}
-      _buyingPriceCrystal: 2
-      _buyingPriceFood: 2
-      _buyingPriceEnergy: 2
+      _buyingPriceCrystal: 30
+      _buyingPriceFood: 30
+      _buyingPriceEnergy: 30
       _producedTroopsQueue: 0
     - _troopType: 2
       _name: Tank
       _image: {fileID: 21300000, guid: 4807ed99f7c970443832ea2b305619c5, type: 3}
-      _buyingPriceCrystal: 2
-      _buyingPriceFood: 2
-      _buyingPriceEnergy: 2
+      _buyingPriceCrystal: 40
+      _buyingPriceFood: 40
+      _buyingPriceEnergy: 40
       _producedTroopsQueue: 0
   - troopsPageParameterses:
     - _troopType: 3
       _name: Helicopter
       _image: {fileID: 21300000, guid: 81d046e7dddfe7c4a9e53f7b9537e299, type: 3}
-      _buyingPriceCrystal: 2
-      _buyingPriceFood: 2
-      _buyingPriceEnergy: 2
+      _buyingPriceCrystal: 50
+      _buyingPriceFood: 50
+      _buyingPriceEnergy: 50
       _producedTroopsQueue: 0
     - _troopType: 4
       _name: Plane
       _image: {fileID: 21300000, guid: 2773df83962fc2a42bd9e1efcf6f4cb6, type: 3}
-      _buyingPriceCrystal: 0
-      _buyingPriceFood: 0
-      _buyingPriceEnergy: 0
+      _buyingPriceCrystal: 60
+      _buyingPriceFood: 60
+      _buyingPriceEnergy: 60
       _producedTroopsQueue: 0
     - _troopType: 5
       _name: Pobot
       _image: {fileID: 21300000, guid: 4e04de114fcaed441b3fd57662fc7bc6, type: 3}
-      _buyingPriceCrystal: 0
-      _buyingPriceFood: 0
-      _buyingPriceEnergy: 0
+      _buyingPriceCrystal: 70
+      _buyingPriceFood: 70
+      _buyingPriceEnergy: 70
       _producedTroopsQueue: 0
   _nextPageButton: {fileID: 1311786912}
   _prevPageButton: {fileID: 814854507}
@@ -30677,9 +30677,9 @@ MonoBehaviour:
   _buildsData:
     _placePosition: {fileID: 2019346961}
     _isInteractable: 0
-    _updateCrystalsPrice: 0
-    _updateFoodPrice: 0
-    _updateEnergyPrice: 0
+    _updateCrystalsPrice: 50
+    _updateFoodPrice: 50
+    _updateEnergyPrice: 50
     _information: Produces crystals
   _isInUse: 1
   _canBeImproved: 1
@@ -30688,7 +30688,7 @@ MonoBehaviour:
   _structureLevels: 0
   _producingInterval: 2
   _producedResource: 0
-  _producedCrystals: 26
+  _producedCrystals: 20
 --- !u!54 &1569083959
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32495,7 +32495,7 @@ MonoBehaviour:
   _structureTypesType: 7
   _structureLevels: 0
   _power: 0
-  _amountOfPowerForLevel: 0a000000140000001e000000
+  _amountOfPowerForLevel: 0a00000064000000e8030000
 --- !u!54 &1651272280
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -33733,7 +33733,7 @@ MonoBehaviour:
   _structureTypesType: 7
   _structureLevels: 0
   _power: 0
-  _amountOfPowerForLevel: 0a000000140000001e000000
+  _amountOfPowerForLevel: 0a00000064000000e8030000
 --- !u!54 &1711337553
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -35881,7 +35881,7 @@ MonoBehaviour:
   _structureTypesType: 7
   _structureLevels: 0
   _power: 0
-  _amountOfPowerForLevel: 0a000000140000001e000000
+  _amountOfPowerForLevel: 0a00000064000000e8030000
 --- !u!54 &1823092986
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -40796,7 +40796,7 @@ MonoBehaviour:
   _structureTypesType: 7
   _structureLevels: 0
   _power: 0
-  _amountOfPowerForLevel: 0a000000140000001e000000
+  _amountOfPowerForLevel: 0a00000064000000e8030000
 --- !u!54 &2064102516
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -41736,9 +41736,9 @@ MonoBehaviour:
   _buildsData:
     _placePosition: {fileID: 853963458}
     _isInteractable: 0
-    _updateCrystalsPrice: 1
-    _updateFoodPrice: 2
-    _updateEnergyPrice: 3
+    _updateCrystalsPrice: 50
+    _updateFoodPrice: 50
+    _updateEnergyPrice: 50
     _information: Produces energy
   _isInUse: 1
   _canBeImproved: 1
@@ -41747,7 +41747,7 @@ MonoBehaviour:
   _structureLevels: 0
   _producingInterval: 2
   _producedResource: 1
-  _producedEnergy: 25
+  _producedEnergy: 20
 --- !u!54 &2139898223
 Rigidbody:
   m_ObjectHideFlags: 0
